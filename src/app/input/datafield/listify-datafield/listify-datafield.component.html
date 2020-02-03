@@ -1,0 +1,24 @@
+<div>
+    
+    <div *ngIf="input || all">
+        <ng-content select="app-li-input">
+
+        </ng-content>
+    </div>
+    
+    
+    <div *ngIf="output || all">
+        <ng-content select="app-li-output>">
+
+        </ng-content>
+    </div>
+
+    <div *ngIf="detailedList || all">
+        <ng-content select="app-li-detailed-list">
+            
+        </ng-content>
+    </div>
+    
+    
+
+</div>
