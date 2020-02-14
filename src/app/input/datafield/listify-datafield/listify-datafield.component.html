@@ -1,24 +1,17 @@
 <div>
-    
-    <div *ngIf="input || all">
-        <ng-content select="app-li-input">
+  <div *ngIf="render == 'input' || render == 'all'">
+    <ng-content select="app-li-input"> </ng-content>
+  </div>
 
-        </ng-content>
-    </div>
-    
-    
-    <div *ngIf="output || all">
-        <ng-content select="app-li-output>">
+  <div *ngIf="render == 'output' || render == 'all'">
+    <ng-content select="app-li-output"> </ng-content>
+  </div>
 
-        </ng-content>
-    </div>
+  <div *ngIf="render == 'settings' || render == 'all'">
+    <ng-content select="app-li-settings"> </ng-content>
+  </div>
 
-    <div *ngIf="detailedList || all">
-        <ng-content select="app-li-detailed-list">
-            
-        </ng-content>
-    </div>
-    
-    
-
+  <div *ngIf="render == 'detailedList' || render == 'all'">
+    <ng-content select="app-li-detailed-list"> </ng-content>
+  </div>
 </div>
