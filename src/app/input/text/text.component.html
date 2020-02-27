@@ -8,7 +8,28 @@
     />
   </app-li-input>
   <app-li-settings>
-    Required yes or no.
+    Required: {{ required }}
+    <input
+      type="radio"
+      value="yes"
+      id="yes"
+      [(ngModel)]="thisField.settings.required"
+      (input)="inputService.settingsChanged(thisField)"
+    />
+    <label for="yes">Yes</label>
+    <input
+      type="radio"
+      value="no"
+      id="no"
+      [(ngModel)]="thisField.settings.required"
+    />
+    <label for="no">No</label>
+    Placeholder:
+    <input
+      type="text"
+      [(ngModel)]="thisField.settings.placeholder"
+      (input)="inputService.settingsChanged(thisField)"
+    />
   </app-li-settings>
   <app-li-output>
     Textbox rendered: Blah

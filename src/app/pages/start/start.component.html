@@ -1,1 +1,7 @@
-<app-text render="input"></app-text>
+<br />
+<button (click)="render = 'input'">Input</button>
+<button (click)="render = 'output'">Output</button>
+<button (click)="render = 'settings'">Settings</button>
+<button (click)="render = 'all'">All</button>
+
+<app-text [render]="render"></app-text>

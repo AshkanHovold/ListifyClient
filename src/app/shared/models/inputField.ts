@@ -1,3 +1,5 @@
+import { TemplateField } from "./templateField";
+
 export interface InputField {
-  thisField: any;
+  thisField: TemplateField;
 }

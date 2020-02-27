@@ -12,13 +12,5 @@ export class ListifyDatafieldComponent implements OnInit {
   all: boolean;
   constructor() {}
 
-  ngOnInit() {
-    if (this.render && this.render === "input") {
-      this.input = true;
-    } else if (this.render && this.render === "output") {
-      this.output = true;
-    } else {
-      this.all = true;
-    }
-  }
+  ngOnInit() {}
 }

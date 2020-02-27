@@ -1,1 +1,30 @@
-<p>template works!</p>
+<app-card>
+  <app-toolbar>Template manager</app-toolbar>
+  <app-button-group>
+    <app-button (click)="newTemplate()"><b>New</b></app-button>
+    <app-button (click)="newTemplate()"><b>Search</b></app-button>
+  </app-button-group>
+
+  <div style="width:200px;">
+    <app-card>
+      <app-toolbar>Templates</app-toolbar>
+      <app-list>
+        <app-list-item *ngFor="let template of templates">
+          <a
+            [routerLink]="['/template', template.id]"
+            routerLinkActive="router-link-active"
+          >
+            {{ template.name }}
+          </a>
+        </app-list-item>
+      </app-list>
+    </app-card>
+  </div>
+  <div style="width:100%;">
+    <app-card>
+      <app-toolbar>Templates</app-toolbar>
+      {{ test }}
+      <app-input type="text" [(ngModel)]="test"></app-input>
+    </app-card>
+  </div>
+</app-card>
