@@ -1,0 +1,13 @@
+<app-card>
+  <app-toolbar>New template</app-toolbar>
+  <app-input
+    type="text"
+    [(inputValue)]="templateName"
+    label="Name"
+    (input)="validate()"
+  ></app-input>
+  <app-info-msg [msg]="msg"></app-info-msg>
+  <app-button-group>
+    <app-button (click)="createTemplate()">Create</app-button>
+  </app-button-group>
+</app-card>

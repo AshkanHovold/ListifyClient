@@ -1,5 +1,9 @@
-<input
-  [type]="type"
-  [(ngModel)]="inputValue"
-  (ngModelChange)="inputValueChange.emit(inputValue)"
-/>
+<div>
+  <label [for]="name" *ngIf="label">{{ label }}</label>
+  <input
+    [type]="type"
+    [(ngModel)]="inputValue"
+    (ngModelChange)="inputValueChange.emit(inputValue)"
+    [id]="name"
+  />
+</div>

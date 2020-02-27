@@ -20,6 +20,8 @@ import { ButtonGroupComponent } from "./standard/button-group/button-group.compo
 import { ListComponent } from "./standard/list/list.component";
 import { ListItemComponent } from "./standard/list-item/list-item.component";
 import { InputComponent } from "./standard/input/input.component";
+import { NewTemplateComponent } from './pages/new-template/new-template.component';
+import { InfoMsgComponent } from './standard/info-msg/info-msg.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { InputComponent } from "./standard/input/input.component";
     ButtonGroupComponent,
     ListComponent,
     ListItemComponent,
-    InputComponent
+    InputComponent,
+    NewTemplateComponent,
+    InfoMsgComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

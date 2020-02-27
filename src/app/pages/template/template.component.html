@@ -20,11 +20,20 @@
       </app-list>
     </app-card>
   </div>
-  <div style="width:100%;">
+  <div>
     <app-card>
       <app-toolbar>Templates</app-toolbar>
-      {{ test }}
-      <app-input type="text" [(ngModel)]="test"></app-input>
+      <app-input
+        type="text"
+        [(inputValue)]="test"
+        label="Firstname"
+      ></app-input>
+
+      <app-input
+        type="text"
+        [(inputValue)]="test2"
+        label="Lastname"
+      ></app-input>
     </app-card>
   </div>
 </app-card>

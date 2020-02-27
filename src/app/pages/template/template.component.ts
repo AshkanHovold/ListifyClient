@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-template",
@@ -6,7 +7,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./template.component.scss"]
 })
 export class TemplateComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
+  test: string = "hmm";
+  test2: string = "another";
   templates: any[] = [
     { id: 1, name: "Book" },
     { id: 2, name: "Movie" }
@@ -15,6 +18,6 @@ export class TemplateComponent implements OnInit {
   ngOnInit() {}
 
   newTemplate() {
-    alert("new template");
+    this.router.navigate(["new-template"]);
   }
 }

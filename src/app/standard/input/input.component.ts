@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { v4 as uuidv4 } from "uuid";
 
 @Component({
   selector: "app-input",
@@ -7,9 +8,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class InputComponent implements OnInit {
   @Input() type: string;
+  @Input() label: string;
   name: string;
   constructor() {
-    this.name = new Date().getDate().toString();
+    this.name = uuidv4();
+    console.log(this.name);
   }
 
   /**
