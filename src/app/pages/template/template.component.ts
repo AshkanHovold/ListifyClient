@@ -18,6 +18,6 @@ export class TemplateComponent implements OnInit {
   ngOnInit() {}
 
   newTemplate() {
-    this.router.navigate(["new-template"]);
+    this.router.navigate(["template/new"]);
   }
 }

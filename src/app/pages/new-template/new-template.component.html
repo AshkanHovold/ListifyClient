@@ -8,6 +8,17 @@
   ></app-input>
   <app-info-msg [msg]="msg"></app-info-msg>
   <app-button-group>
-    <app-button (click)="createTemplate()">Create</app-button>
+    <app-button (click)="createTemplate()" [disabled]="!valid">
+      Create
+    </app-button>
+    <app-button (click)="getTemplates()">
+      get
+    </app-button>
   </app-button-group>
+
+  <app-list>
+    <app-list-item *ngFor="let item of items">{{
+      item.templateName
+    }}</app-list-item>
+  </app-list>
 </app-card>

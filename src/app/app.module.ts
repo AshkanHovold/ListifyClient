@@ -20,8 +20,9 @@ import { ButtonGroupComponent } from "./standard/button-group/button-group.compo
 import { ListComponent } from "./standard/list/list.component";
 import { ListItemComponent } from "./standard/list-item/list-item.component";
 import { InputComponent } from "./standard/input/input.component";
-import { NewTemplateComponent } from './pages/new-template/new-template.component';
-import { InfoMsgComponent } from './standard/info-msg/info-msg.component';
+import { NewTemplateComponent } from "./pages/new-template/new-template.component";
+import { InfoMsgComponent } from "./standard/info-msg/info-msg.component";
+import { EditTemplateComponent } from './pages/edit-template/edit-template.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { InfoMsgComponent } from './standard/info-msg/info-msg.component';
     ListItemComponent,
     InputComponent,
     NewTemplateComponent,
-    InfoMsgComponent
+    InfoMsgComponent,
+    EditTemplateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

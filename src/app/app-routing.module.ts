@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { StartComponent } from "./pages/start/start.component";
 import { TemplateComponent } from "./pages/template/template.component";
 import { NewTemplateComponent } from "./pages/new-template/new-template.component";
+import { EditTemplateComponent } from "./pages/edit-template/edit-template.component";
 
 const routes: Routes = [
   {
@@ -14,8 +15,12 @@ const routes: Routes = [
     component: TemplateComponent
   },
   {
-    path: "new-template",
+    path: "template/new",
     component: NewTemplateComponent
+  },
+  {
+    path: "template/:id",
+    component: EditTemplateComponent
   }
 ];
 

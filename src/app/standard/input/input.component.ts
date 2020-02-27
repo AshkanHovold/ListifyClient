@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { v4 as uuidv4 } from "uuid";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-input",
@@ -12,7 +13,9 @@ export class InputComponent implements OnInit {
   name: string;
   constructor() {
     this.name = uuidv4();
-    console.log(this.name);
+    if (environment.debugOn) {
+      console.log(this.name);
+    }
   }
 
   /**
