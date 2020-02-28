@@ -11,7 +11,7 @@ const routes: Routes = [
     component: StartComponent
   },
   {
-    path: "template",
+    path: "templates",
     component: TemplateComponent
   },
   {

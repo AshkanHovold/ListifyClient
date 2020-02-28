@@ -22,7 +22,8 @@ import { ListItemComponent } from "./standard/list-item/list-item.component";
 import { InputComponent } from "./standard/input/input.component";
 import { NewTemplateComponent } from "./pages/new-template/new-template.component";
 import { InfoMsgComponent } from "./standard/info-msg/info-msg.component";
-import { EditTemplateComponent } from './pages/edit-template/edit-template.component';
+import { EditTemplateComponent } from "./pages/edit-template/edit-template.component";
+import { TextContainerComponent } from "./standard/text/text.component";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EditTemplateComponent } from './pages/edit-template/edit-template.compo
     InputComponent,
     NewTemplateComponent,
     InfoMsgComponent,
-    EditTemplateComponent
+    EditTemplateComponent,
+    TextContainerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

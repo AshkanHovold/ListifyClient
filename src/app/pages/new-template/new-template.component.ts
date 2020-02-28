@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "src/app/shared/data.service";
 import { environment } from "src/environments/environment";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-new-template",
@@ -13,7 +14,7 @@ export class NewTemplateComponent implements OnInit {
   items: any[];
   valid: boolean;
   TEMPLATE = "template";
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
     this.valid = false;
@@ -40,11 +41,12 @@ export class NewTemplateComponent implements OnInit {
     }
   }
 
-  createTemplate() {
+  async createTemplate() {
     var id = this.dataService.getNewId();
-    this.dataService.setItem(this.TEMPLATE, id, {
+    await this.dataService.setItem(this.TEMPLATE, id, {
       templateId: id,
       templateName: this.templateName
     });
+    this.router.navigate(["/templates"]);
   }
 }

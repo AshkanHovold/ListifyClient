@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { DataService } from "src/app/shared/data.service";
+import { Constants } from "src/app/shared/constants";
 
 @Component({
   selector: "app-template",
@@ -7,15 +9,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./template.component.scss"]
 })
 export class TemplateComponent implements OnInit {
-  constructor(private router: Router) {}
-  test: string = "hmm";
-  test2: string = "another";
-  templates: any[] = [
-    { id: 1, name: "Book" },
-    { id: 2, name: "Movie" }
-  ];
+  constructor(private router: Router, private dataService: DataService) {}
 
-  ngOnInit() {}
+  templates: any[];
+
+  async ngOnInit() {
+    this.templates = await this.dataService.getAllItems(Constants.TEMPLATE);
+  }
 
   newTemplate() {
     this.router.navigate(["template/new"]);

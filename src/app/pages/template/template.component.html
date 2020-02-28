@@ -4,36 +4,24 @@
     <app-button (click)="newTemplate()"><b>New</b></app-button>
     <app-button (click)="newTemplate()"><b>Search</b></app-button>
   </app-button-group>
-
+  <app-text-container>
+    Welcome to the template manager. Here you can create templates which is the
+    blueprint for creating items.
+  </app-text-container>
   <div style="width:200px;">
     <app-card>
       <app-toolbar>Templates</app-toolbar>
+
       <app-list>
         <app-list-item *ngFor="let template of templates">
           <a
             [routerLink]="['/template', template.id]"
             routerLinkActive="router-link-active"
           >
-            {{ template.name }}
+            {{ template.templateName }}
           </a>
         </app-list-item>
       </app-list>
-    </app-card>
-  </div>
-  <div>
-    <app-card>
-      <app-toolbar>Templates</app-toolbar>
-      <app-input
-        type="text"
-        [(inputValue)]="test"
-        label="Firstname"
-      ></app-input>
-
-      <app-input
-        type="text"
-        [(inputValue)]="test2"
-        label="Lastname"
-      ></app-input>
     </app-card>
   </div>
 </app-card>
