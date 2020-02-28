@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { DataService } from 'src/app/shared/data.service';
+import { Constants } from 'src/app/shared/constants';
 
 @Component({
   selector: "app-edit-template",
@@ -8,9 +10,12 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class EditTemplateComponent implements OnInit {
   templateId: string;
-  constructor(private route: ActivatedRoute) {}
+  template: any;
+  selectedItem:string = "";
+  constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.templateId = this.route.snapshot.paramMap.get("id");
+    this.template = await this.dataService.getItem(Constants.TEMPLATE, this.templateId);
   }
 }

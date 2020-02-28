@@ -1,1 +1,8 @@
-<p>edit-template works!</p>
+<app-card *ngIf="template">
+    <app-toolbar>Edit template: {{template.templateName}}</app-toolbar>
+    <app-text-container>
+        Edit an existing template. You can add new fields, change the names of existing fields.<br>
+        {{selectedItem}}
+    </app-text-container>
+    <app-radio [items]="[{name: 'One', value:'one'}, {name: 'Two', value:'two'}]" name="test" [(selectedItem)]="selectedItem"></app-radio>
+</app-card>

@@ -1,0 +1,7 @@
+<div class="radio-button-wrapper">
+
+    <div *ngFor="let item of items">
+    <input type="radio" [id]="item.name" [name]="name" [value]="item.value" [(ngModel)]="selectedItem" (ngModelChange)="selectedItemChange.emit(selectedItem)">
+    <label [for]="item.name">{{item.name}}</label><br>
+</div>
+    </div>

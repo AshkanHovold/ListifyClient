@@ -24,6 +24,7 @@ import { NewTemplateComponent } from "./pages/new-template/new-template.componen
 import { InfoMsgComponent } from "./standard/info-msg/info-msg.component";
 import { EditTemplateComponent } from "./pages/edit-template/edit-template.component";
 import { TextContainerComponent } from "./standard/text/text.component";
+import { RadioComponent } from './standard/radio/radio.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { TextContainerComponent } from "./standard/text/text.component";
     NewTemplateComponent,
     InfoMsgComponent,
     EditTemplateComponent,
-    TextContainerComponent
+    TextContainerComponent,
+    RadioComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

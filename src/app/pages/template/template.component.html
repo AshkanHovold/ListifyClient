@@ -15,9 +15,8 @@
       <app-list>
         <app-list-item *ngFor="let template of templates">
           <a
-            [routerLink]="['/template', template.id]"
-            routerLinkActive="router-link-active"
-          >
+            [routerLink]="['/template', template.templateId]"
+            routerLinkActive="router-link-active">
             {{ template.templateName }}
           </a>
         </app-list-item>
