@@ -1,0 +1,6 @@
+<div class="select-wrapper">
+    <label [for]="id" *ngIf="label">{{label}}</label>
+    <select [(ngModel)]="inputValue" (ngModelChange)="inputValueChange.emit(inputValue)" [id]="id">
+        <option *ngFor="let option of options" [value]="option.value">{{option.name}}</option>
+    </select>
+</div>

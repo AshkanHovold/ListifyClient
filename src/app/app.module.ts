@@ -25,6 +25,7 @@ import { InfoMsgComponent } from "./standard/info-msg/info-msg.component";
 import { EditTemplateComponent } from "./pages/edit-template/edit-template.component";
 import { TextContainerComponent } from "./standard/text/text.component";
 import { RadioComponent } from './standard/radio/radio.component';
+import { SelectComponent } from './standard/select/select.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { RadioComponent } from './standard/radio/radio.component';
     InfoMsgComponent,
     EditTemplateComponent,
     TextContainerComponent,
-    RadioComponent
+    RadioComponent,
+    SelectComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

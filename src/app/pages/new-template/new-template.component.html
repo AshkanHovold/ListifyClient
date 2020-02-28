@@ -1,21 +1,15 @@
 <app-card>
   <app-toolbar>New template</app-toolbar>
-  <app-input
-    type="text"
-    [(inputValue)]="templateName"
-    label="Name"
-    (input)="validate()"
-  ></app-input>
+  <app-input type="text" [(inputValue)]="templateName" label="Name" (input)="validate()"></app-input>
   <app-info-msg [msg]="msg"></app-info-msg>
   <app-button-group>
     <app-button (click)="createTemplate()" [disabled]="!valid">
       Create
     </app-button>
-    <app-button (click)="getTemplates()">
-      get
-    </app-button>
   </app-button-group>
 
+  <!-- <app-select [(inputValue)]="selectTest" label="Here we go"
+    [options]="[{name:'One', value:'one'},{name:'Coolio', value:'voolio'}]"></app-select> -->
   <app-list>
     <app-list-item *ngFor="let item of items">{{
       item.templateName

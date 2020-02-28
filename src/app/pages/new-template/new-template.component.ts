@@ -14,7 +14,8 @@ export class NewTemplateComponent implements OnInit {
   items: any[];
   valid: boolean;
   TEMPLATE = "template";
-  constructor(private dataService: DataService, private router: Router) {}
+  selectTest = "";
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     this.valid = false;
@@ -34,18 +35,12 @@ export class NewTemplateComponent implements OnInit {
     }
   }
 
-  async getTemplates() {
-    var templates = await this.dataService.getAllItems(this.TEMPLATE);
-    if (environment.debugOn) {
-      console.log(templates);
-    }
-  }
-
   async createTemplate() {
     var id = this.dataService.getNewId();
     await this.dataService.setItem(this.TEMPLATE, id, {
-      templateId: id,
-      templateName: this.templateName
+      id: id,
+      name: this.templateName,
+      fields: []
     });
     this.router.navigate(["/templates"]);
   }

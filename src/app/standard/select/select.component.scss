@@ -1,0 +1,18 @@
+@import "../../../variables.scss";
+
+label {
+    font-family: $font;
+    font-size: $smalltext;
+    padding: $padding;
+}
+select {
+    font-family: $font;
+    font-size: $smalltext;
+    padding: $padding;
+    width: calc(100% - 4px);
+}
+
+.select-wrapper {
+    padding: $padding;
+    width: 100%;
+}
