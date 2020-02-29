@@ -4,4 +4,8 @@
 <button (click)="render = 'settings'">Settings</button>
 <button (click)="render = 'all'">All</button>
 
-<app-text [render]="render"></app-text>
+<app-display-input type="text" [render]="render" [data]="{value:'hmm',settings: {label:'Testing'}}">
+</app-display-input>
+
+<app-display-input type="textarea" [render]="render" [data]="{value:'hmm',settings: {label:'Testing'}}">
+</app-display-input>

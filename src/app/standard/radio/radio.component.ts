@@ -7,8 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class RadioComponent implements OnInit {
   @Input() items: any[];
-  @Input() name:string;
-  @Input() selectedItem:string = "";
+  @Input() label: string;
+  @Input() selectedItem: string = "";
   constructor() { }
 
   ngOnInit() {

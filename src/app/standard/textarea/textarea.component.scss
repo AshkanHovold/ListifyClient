@@ -1,0 +1,20 @@
+@import "../../../variables.scss";
+
+textarea {
+  width: calc(100% - 4px);
+  margin: $padding;
+  //   margin-left: 2px;
+  //   margin-right: 2px;
+  //   margin-bottom: 2px;
+  //   padding: 12px 20px;
+  //   margin: 8px 0;
+  box-sizing: border-box;
+  font-family: $font;
+  font-size: $smalltext;
+}
+
+label {
+  padding-left: $padding;
+  font-family: $font;
+  font-size: $smalltext;
+}

@@ -27,6 +27,8 @@ import { TextContainerComponent } from "./standard/text/text.component";
 import { RadioComponent } from './standard/radio/radio.component';
 import { SelectComponent } from './standard/select/select.component';
 import { InputHostDirective } from './directives/input-host.directive';
+import { DisplayInputComponent } from './input/display-input/display-input.component';
+import { TextareaComponent } from './standard/textarea/textarea.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { InputHostDirective } from './directives/input-host.directive';
     TextContainerComponent,
     RadioComponent,
     SelectComponent,
-    InputHostDirective
+    InputHostDirective,
+    DisplayInputComponent,
+    TextareaComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

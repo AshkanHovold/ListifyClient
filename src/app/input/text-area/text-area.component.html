@@ -1,1 +1,19 @@
-<p>text-area works!</p>
+<app-li [render]="render">
+    <app-li-input>
+        <app-textarea [(inputValue)]="data.value" [label]="data.settings.label"
+            (input)="inputService.fieldChanged(data)"></app-textarea>
+    </app-li-input>
+    <app-li-settings>
+        Required: {{ required }}
+        <input type="radio" value="yes" id="yes" [(ngModel)]="data.settings.required"
+            (input)="inputService.settingsChanged(data)" />
+        <label for="yes">Yes</label>
+        <input type="radio" value="no" id="no" [(ngModel)]="data.settings.required" />
+        <label for="no">No</label>
+        Placeholder:
+        <input type="text" [(ngModel)]="data.settings.placeholder" (input)="inputService.settingsChanged(data)" />
+    </app-li-settings>
+    <app-li-output>
+        Textarea rendered: Blah
+    </app-li-output>
+</app-li>

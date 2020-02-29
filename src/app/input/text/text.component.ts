@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { InputService } from "src/app/shared/input.service";
 import { InputField } from "src/app/shared/models/inputField";
-import { TemplateField } from "src/app/shared/models/templateField";
+import { TemplateFieldData } from "src/app/shared/models/templateField";
 import { TemplateSettings } from "src/app/shared/models/templateSettings";
 
 @Component({
@@ -10,21 +10,36 @@ import { TemplateSettings } from "src/app/shared/models/templateSettings";
   styleUrls: ["./text.component.scss"]
 })
 export class TextComponent implements OnInit, InputField {
-  thisField: TemplateField;
-  @Input() render: string;
-  @Input() formId: string;
-  @Input() templateId: string;
 
-  constructor(public inputService: InputService) {}
+  @Input() render: string;
+  @Input() data: TemplateFieldData;
+
+  constructor(public inputService: InputService) { }
 
   ngOnInit() {
-    this.thisField = <TemplateField>{
-      value: "",
-      formId: this.formId,
-      templateId: this.templateId,
-      settings: <TemplateSettings>{
-        required: false
+    //adding new field to template, setting default settings that can be changed from ui
+    if (this.render === "settings") {
+      this.data.settings = {
+        required: false,
+        validate: this.validateField,
+        otherSettings: {}
       }
-    };
+    }
+
+    if (this.render === "input") {
+      //this.data = this.inputService.getNewTemplateInput
+    }
+    // this.data = <TemplateField>{
+    //   value: "",
+    //   formId: this.formId,
+    //   templateId: this.templateId,
+    //   settings: <TemplateSettings>{
+    //     required: false
+    //   }
+    // };
+  }
+
+  validateField(): boolean {
+    return true;
   }
 }

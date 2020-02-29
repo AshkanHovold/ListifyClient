@@ -1,5 +1,6 @@
-import { TemplateField } from "./templateField";
+import { TemplateFieldData } from "./templateField";
 
 export interface InputField {
-  thisField: TemplateField;
+  data: TemplateFieldData;
+  render: string;
 }

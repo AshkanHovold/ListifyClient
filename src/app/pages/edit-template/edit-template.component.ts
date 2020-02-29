@@ -20,12 +20,13 @@ export class EditTemplateComponent implements OnInit {
   fieldToAdd: any;
   fieldNameValid: boolean;
   msg: string = "";
-  fieldTypes: any[] = [{ name: 'Text', value: 'text' }];
+  fieldTypes: any[];
   constructor(private inputService: InputService, private route: ActivatedRoute, private dataService: DataService, private componentFactoryResolver: ComponentFactoryResolver) { }
 
   async ngOnInit() {
     this.templateId = this.route.snapshot.paramMap.get("id");
     this.template = await this.dataService.getItem(Constants.TEMPLATE, this.templateId);
+    this.fieldTypes = this.inputService.getAvailableFieldTypes();
   }
 
   editField(field: any) {
@@ -34,7 +35,12 @@ export class EditTemplateComponent implements OnInit {
   }
 
   newField() {
-    this.fieldToAdd = { id: this.dataService.getNewId(), name: '' };
+    this.fieldToAdd = this.inputService.getNewTemplateFieldData(this.templateId);
+    this.selectedField = null;
+  }
+
+  cancel() {
+    this.fieldToAdd = null;
     this.selectedField = null;
   }
 
@@ -59,13 +65,14 @@ export class EditTemplateComponent implements OnInit {
 
   loadComponent() {
 
+    //<ng-template appInputHost></ng-template>  <-- but this in view outside ng-if to load component dynamicly. not using this right now
     let inputComponents = this.inputService.getAvailableInputs();
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(inputComponents[0].component);
     const viewContainerRef = this.inputHost.viewContainerRef;
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    (<any>componentRef.instance).render = "input";
+    (<any>componentRef.instance).render = "settings";
   }
 
 
