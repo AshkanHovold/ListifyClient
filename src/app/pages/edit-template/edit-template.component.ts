@@ -1,10 +1,16 @@
-import { Component, OnInit, ViewChild, ComponentFactoryResolver, ViewContainerRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ComponentFactoryResolver,
+  ViewContainerRef
+} from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { DataService } from 'src/app/shared/data.service';
-import { Constants } from 'src/app/shared/constants';
-import { InputHostDirective } from 'src/app/directives/input-host.directive';
-import { InputService } from 'src/app/shared/input.service';
-import { InputField } from 'src/app/shared/models/inputField';
+import { DataService } from "src/app/shared/data.service";
+import { Constants } from "src/app/shared/constants";
+import { InputHostDirective } from "src/app/directives/input-host.directive";
+import { InputService } from "src/app/shared/input.service";
+import { InputField } from "src/app/shared/models/inputField";
 
 @Component({
   selector: "app-edit-template",
@@ -12,7 +18,8 @@ import { InputField } from 'src/app/shared/models/inputField';
   styleUrls: ["./edit-template.component.scss"]
 })
 export class EditTemplateComponent implements OnInit {
-  @ViewChild(InputHostDirective, { static: true }) inputHost: InputHostDirective;
+  @ViewChild(InputHostDirective, { static: true })
+  inputHost: InputHostDirective;
   templateId: string;
   template: any;
   selectedItem: string = "";
@@ -21,11 +28,19 @@ export class EditTemplateComponent implements OnInit {
   fieldNameValid: boolean;
   msg: string = "";
   fieldTypes: any[];
-  constructor(private inputService: InputService, private route: ActivatedRoute, private dataService: DataService, private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor(
+    private inputService: InputService,
+    private route: ActivatedRoute,
+    private dataService: DataService,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
   async ngOnInit() {
     this.templateId = this.route.snapshot.paramMap.get("id");
-    this.template = await this.dataService.getItem(Constants.TEMPLATE, this.templateId);
+    this.template = await this.dataService.getItem(
+      Constants.TEMPLATE,
+      this.templateId
+    );
     this.fieldTypes = this.inputService.getAvailableFieldTypes();
   }
 
@@ -35,7 +50,9 @@ export class EditTemplateComponent implements OnInit {
   }
 
   newField() {
-    this.fieldToAdd = this.inputService.getNewTemplateFieldData(this.templateId);
+    this.fieldToAdd = this.inputService.getNewTemplateFieldData(
+      this.templateId
+    );
     this.selectedField = null;
   }
 
@@ -46,7 +63,13 @@ export class EditTemplateComponent implements OnInit {
 
   async addField() {
     this.template.fields.push(this.fieldToAdd);
-    await this.dataService.setItem(Constants.TEMPLATE, this.templateId, this.template);
+    let toUpdate = this.dataService.deepCopy(this.template);
+    debugger;
+    await this.dataService.setItem(
+      Constants.TEMPLATE,
+      this.templateId,
+      toUpdate
+    );
     this.fieldToAdd = null;
   }
 
@@ -64,17 +87,15 @@ export class EditTemplateComponent implements OnInit {
   }
 
   loadComponent() {
-
     //<ng-template appInputHost></ng-template>  <-- but this in view outside ng-if to load component dynamicly. not using this right now
     let inputComponents = this.inputService.getAvailableInputs();
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(inputComponents[0].component);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
+      inputComponents[0].component
+    );
     const viewContainerRef = this.inputHost.viewContainerRef;
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent(componentFactory);
     (<any>componentRef.instance).render = "settings";
   }
-
-
-
 }

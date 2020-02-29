@@ -27,4 +27,8 @@ export class DataService {
   getNewId(): string {
     return uuidv4();
   }
+
+  deepCopy(toCopy: any): any {
+    return JSON.parse(JSON.stringify(toCopy));
+  }
 }
