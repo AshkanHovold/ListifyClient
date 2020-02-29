@@ -1,7 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, ViewContainerRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { DataService } from 'src/app/shared/data.service';
 import { Constants } from 'src/app/shared/constants';
+import { InputHostDirective } from 'src/app/directives/input-host.directive';
+import { InputService } from 'src/app/shared/input.service';
+import { InputField } from 'src/app/shared/models/inputField';
 
 @Component({
   selector: "app-edit-template",
@@ -9,6 +12,7 @@ import { Constants } from 'src/app/shared/constants';
   styleUrls: ["./edit-template.component.scss"]
 })
 export class EditTemplateComponent implements OnInit {
+  @ViewChild(InputHostDirective, { static: true }) inputHost: InputHostDirective;
   templateId: string;
   template: any;
   selectedItem: string = "";
@@ -16,7 +20,8 @@ export class EditTemplateComponent implements OnInit {
   fieldToAdd: any;
   fieldNameValid: boolean;
   msg: string = "";
-  constructor(private route: ActivatedRoute, private dataService: DataService) { }
+  fieldTypes: any[] = [{ name: 'Text', value: 'text' }];
+  constructor(private inputService: InputService, private route: ActivatedRoute, private dataService: DataService, private componentFactoryResolver: ComponentFactoryResolver) { }
 
   async ngOnInit() {
     this.templateId = this.route.snapshot.paramMap.get("id");
@@ -50,8 +55,17 @@ export class EditTemplateComponent implements OnInit {
       this.fieldNameValid = true;
       this.msg = "";
     }
+  }
 
+  loadComponent() {
 
+    let inputComponents = this.inputService.getAvailableInputs();
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(inputComponents[0].component);
+    const viewContainerRef = this.inputHost.viewContainerRef;
+    viewContainerRef.clear();
+
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    (<any>componentRef.instance).render = "input";
   }
 
 

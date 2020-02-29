@@ -26,6 +26,7 @@ import { EditTemplateComponent } from "./pages/edit-template/edit-template.compo
 import { TextContainerComponent } from "./standard/text/text.component";
 import { RadioComponent } from './standard/radio/radio.component';
 import { SelectComponent } from './standard/select/select.component';
+import { InputHostDirective } from './directives/input-host.directive';
 
 @NgModule({
   declarations: [
@@ -51,10 +52,12 @@ import { SelectComponent } from './standard/select/select.component';
     EditTemplateComponent,
     TextContainerComponent,
     RadioComponent,
-    SelectComponent
+    SelectComponent,
+    InputHostDirective
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TextComponent]
 })
-export class AppModule {}
+export class AppModule { }

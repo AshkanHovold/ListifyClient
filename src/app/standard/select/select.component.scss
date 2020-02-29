@@ -3,16 +3,17 @@
 label {
     font-family: $font;
     font-size: $smalltext;
-    padding: $padding;
+    padding-left: $padding;
 }
 select {
     font-family: $font;
     font-size: $smalltext;
-    padding: $padding;
+    margin: $padding;
     width: calc(100% - 4px);
+    box-sizing: border-box;
 }
 
 .select-wrapper {
-    padding: $padding;
+    
     width: 100%;
 }

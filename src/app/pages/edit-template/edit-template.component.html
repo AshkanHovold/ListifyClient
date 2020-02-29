@@ -1,3 +1,4 @@
+<ng-template appInputHost></ng-template>
 <app-card *ngIf="template">
     <app-toolbar>Edit template: {{template.name}}</app-toolbar>
     <app-button-group>
@@ -19,8 +20,12 @@
         <app-input type="text" [(inputValue)]="fieldToAdd.name" label="Field name" (input)="validateFieldName()">
         </app-input>
         <app-info-msg [msg]="msg"></app-info-msg>
+        <app-select [options]="fieldTypes" [(inputValue)]="fieldToAdd.type" label="Field type"></app-select>
+        <!-- <app-input-selector label="Select field type" [(selectedInput)]="fieldToAdd.type"></app-input-selector> -->
+
         <app-button-group>
             <app-button (click)="addField()">Add field</app-button>
+            <app-button (click)="loadComponent()">Test load</app-button>
         </app-button-group>
     </app-card>
 
@@ -29,4 +34,6 @@
     </app-card>
     <!-- <app-radio [items]="[{name: 'One', value:'one'}, {name: 'Two', value:'two'}]" name="test"
         [(selectedItem)]="selectedItem"></app-radio> -->
+    <!-- <app-select [(inputValue)]="selectTest" label="Here we go"
+    [options]="[{name:'One', value:'one'},{name:'Coolio', value:'voolio'}]"></app-select> -->
 </app-card>
