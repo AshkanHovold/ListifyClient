@@ -2,7 +2,8 @@
   <div *ngIf="template">
     <app-toolbar>Edit template: {{ template.name }}</app-toolbar>
     <app-button-group>
-      <app-button (click)="newField()">Add field</app-button>
+      <app-button (click)="newField()">New field</app-button>
+      <app-button (click)="newItem()">New item</app-button>
     </app-button-group>
     <app-text-container>
       Edit an existing template. You can add new fields, change the names of

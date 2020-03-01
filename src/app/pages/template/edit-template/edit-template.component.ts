@@ -5,7 +5,7 @@ import {
   ComponentFactoryResolver,
   ViewContainerRef
 } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { DataService } from "src/app/shared/data.service";
 import { Constants } from "src/app/shared/constants";
 import { InputHostDirective } from "src/app/directives/input-host.directive";
@@ -32,8 +32,9 @@ export class EditTemplateComponent implements OnInit {
     private inputService: InputService,
     private route: ActivatedRoute,
     private dataService: DataService,
-    private componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private router: Router
+  ) { }
 
   async ngOnInit() {
     this.templateId = this.route.snapshot.paramMap.get("id");
@@ -84,6 +85,10 @@ export class EditTemplateComponent implements OnInit {
       this.fieldNameValid = true;
       this.msg = "";
     }
+  }
+
+  newItem() {
+    this.router.navigate(['/item/new/', this.templateId]);
   }
 
   loadComponent() {

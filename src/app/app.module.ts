@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { TextComponent } from "./input/text/text.component";
 import { TextAreaComponent } from "./input/text-area/text-area.component";
 import { StartComponent } from "./pages/start/start.component";
-import { TemplateComponent } from "./pages/template/template.component";
+import { TemplateComponent } from "./pages/template/templates/templates.component";
 import { ListifyDatafieldComponent } from "./input/datafield/listify-datafield/listify-datafield.component";
 import { DatafieldInputComponent } from "./input/datafield/input/input.component";
 import { OutputComponent } from "./input/datafield/output/output.component";
@@ -20,15 +20,21 @@ import { ButtonGroupComponent } from "./standard/button-group/button-group.compo
 import { ListComponent } from "./standard/list/list.component";
 import { ListItemComponent } from "./standard/list-item/list-item.component";
 import { InputComponent } from "./standard/input/input.component";
-import { NewTemplateComponent } from "./pages/new-template/new-template.component";
+import { NewTemplateComponent } from "./pages/template/new-template/new-template.component";
 import { InfoMsgComponent } from "./standard/info-msg/info-msg.component";
-import { EditTemplateComponent } from "./pages/edit-template/edit-template.component";
+import { EditTemplateComponent } from "./pages/template/edit-template/edit-template.component";
 import { TextContainerComponent } from "./standard/text/text.component";
 import { RadioComponent } from './standard/radio/radio.component';
 import { SelectComponent } from './standard/select/select.component';
 import { InputHostDirective } from './directives/input-host.directive';
 import { DisplayInputComponent } from './input/display-input/display-input.component';
 import { TextareaComponent } from './standard/textarea/textarea.component';
+import { NewItemComponent } from './pages/item/new-item/new-item.component';
+import { EditItemComponent } from './pages/item/edit-item/edit-item.component';
+import { NewListComponent } from './pages/list/new-list/new-list.component';
+import { EditListComponent } from './pages/list/edit-list/edit-list.component';
+import { NewDashboardComponent } from './pages/dashboard/new-dashboard/new-dashboard.component';
+import { EditDashboardComponent } from './pages/dashboard/edit-dashboard/edit-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +63,13 @@ import { TextareaComponent } from './standard/textarea/textarea.component';
     SelectComponent,
     InputHostDirective,
     DisplayInputComponent,
-    TextareaComponent
+    TextareaComponent,
+    NewItemComponent,
+    EditItemComponent,
+    NewListComponent,
+    EditListComponent,
+    NewDashboardComponent,
+    EditDashboardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
