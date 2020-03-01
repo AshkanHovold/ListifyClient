@@ -65,7 +65,6 @@ export class EditTemplateComponent implements OnInit {
   async addField() {
     this.template.fields.push(this.fieldToAdd);
     let toUpdate = this.dataService.deepCopy(this.template);
-    debugger;
     await this.dataService.setItem(
       Constants.TEMPLATE,
       this.templateId,

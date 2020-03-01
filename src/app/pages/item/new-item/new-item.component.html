@@ -1,12 +1,12 @@
-<app-card *ngIf="template">
-    <app-toolbar>New item</app-toolbar>
-    <app-text-container>Let us create a new item together as father and son</app-text-container>
-    <app-display-input [type]="field.type" *ngFor="let field of template.fields" render="input" [data]="field">
+<app-card *ngIf="ready">
+  <app-toolbar>New item</app-toolbar>
+  <app-text-container>Let us create a new item together as father and son</app-text-container>
+  <app-display-input [type]="field.type" *ngFor="let field of item.fields" render="input" [data]="field">
 
-    </app-display-input>
+  </app-display-input>
 
-    <app-button-group>
-        <app-button (click)="createItem()">Create</app-button>
-        <app-button (click)="cancel()">Cancel</app-button>
-    </app-button-group>
+  <app-button-group>
+    <app-button (click)="createItem()" [disabled]="formDisabled()">Create</app-button>
+    <app-button (click)="cancel()">Cancel</app-button>
+  </app-button-group>
 </app-card>
