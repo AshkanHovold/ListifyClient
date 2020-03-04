@@ -65,9 +65,12 @@ export class TextComponent implements OnInit, InputField {
       let toReturn = this.inputService.requiredField(this.data.value);
       if (!toReturn) {
         this.msg = "Field is required";
+      } else {
+        this.msg = "";
       }
       return toReturn;
     }
+    this.msg = "";
     return true;
   }
 }
