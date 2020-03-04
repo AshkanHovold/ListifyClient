@@ -41,7 +41,7 @@ export class TextAreaComponent implements OnInit, InputField {
 
   fieldChanged() {
     //this.eventService.add({ type: EventService.INPUT_CHANGED, data: { valid: this.validateField(), formId: this.data.formId } });
-    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: this.validateField(), value: this.data.value });
+    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: this.validateField(), value: this.data.value, type: "textarea" });
   }
 
   validateField(): boolean {

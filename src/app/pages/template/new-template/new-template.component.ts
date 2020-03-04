@@ -24,7 +24,7 @@ export class NewTemplateComponent implements OnInit {
   async validate() {
     var templates = await this.dataService.getAllDataFromStorage(this.TEMPLATE);
     var found = templates.filter(
-      t => t.templateName.toLowerCase() == this.templateName.toLowerCase()
+      t => t.name.toLowerCase() == this.templateName.toLowerCase()
     );
     if (found.length > 0) {
       this.valid = false;

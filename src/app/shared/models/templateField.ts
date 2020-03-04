@@ -1,4 +1,5 @@
 import { TemplateSettings } from "./templateSettings";
+import { ImageSnippet } from 'src/app/input/image/image.component';
 
 export interface TemplateFieldData {
   fieldId: string;
@@ -6,4 +7,5 @@ export interface TemplateFieldData {
   formId?: string;
   value?: any;
   settings?: TemplateSettings;
+  image?: ImageSnippet;
 }

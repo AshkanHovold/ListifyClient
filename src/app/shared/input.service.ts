@@ -28,8 +28,8 @@ export class InputService {
   }
 
   newForm(formId: string, fields: any[], templateId: string) {
-    let fieldStates = fields.map(f => ({ fieldId: f.fieldId, valid: true, value: '' }));
-    this.forms.push({ formId: formId, templateId: templateId, valid: true, fields: fieldStates, fieldsValidated: 0 });
+    let fieldStates = fields.map(f => ({ fieldId: f.fieldId, valid: false, value: '', image: null, type: "" }));
+    this.forms.push({ formId: formId, templateId: templateId, valid: false, fields: fieldStates, fieldsValidated: 0 });
   }
 
   getAvailableInputs(): InputItem[] {
@@ -57,16 +57,22 @@ export class InputService {
     //display input component needs to be updated as well
     return [
       { name: "Text", value: "text" },
-      { name: "Text area", value: "textarea" }
+      { name: "Text area", value: "textarea" },
+      { name: "Image", value: "image" }
     ];
   }
 
   updateFormField(formField: any) {
+    if (environment.debugOn) {
+      console.log(formField);
+    }
     let form = this.forms.find(f => f.formId === formField.formId);
     let field = form.fields.find(f => f.fieldId === formField.fieldId);
 
     field.valid = formField.valid;
     field.value = formField.value;
+    field.image = formField.image;
+    field.type = formField.type;
     if (environment.debugOn) {
       console.log(`One more field validated for ${form.formId}`);
     }

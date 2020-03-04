@@ -5,6 +5,7 @@ import { TemplateComponent } from "./pages/template/templates/templates.componen
 import { NewTemplateComponent } from "./pages/template/new-template/new-template.component";
 import { EditTemplateComponent } from "./pages/template/edit-template/edit-template.component";
 import { NewItemComponent } from './pages/item/new-item/new-item.component';
+import { AllItemsComponent } from './pages/item/all-items/all-items.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,9 @@ const routes: Routes = [
   }, {
     path: "item/new/:id",
     component: NewItemComponent
+  }, {
+    path: "items",
+    component: AllItemsComponent
   }
 ];
 

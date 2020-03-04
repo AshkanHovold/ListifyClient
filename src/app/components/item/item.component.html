@@ -1,0 +1,5 @@
+<div class="item-wrapper" *ngIf="data">
+    <app-display-input [type]="field.type" *ngFor="let field of item.fields" render="output" [data]="data">
+
+    </app-display-input>
+</div>

@@ -40,7 +40,12 @@ export class TextComponent implements OnInit, InputField {
     }
 
     if (this.render === "input") {
-      //this.data = this.inputService.getNewTemplateInput
+      //this.data = this.inputService.getNewTemplateInput      
+    }
+
+    if (this.render === "output") {
+      console.log(this.data);
+      this.data
     }
     // this.data = <TemplateField>{
     //   value: "",
@@ -55,7 +60,7 @@ export class TextComponent implements OnInit, InputField {
   fieldChanged() {
     //this.eventService.add({ type: EventService.INPUT_CHANGED, data: { valid: this.validateField(), formId: this.data.formId } });
     let valid = this.validateField();
-    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: valid, value: this.data.value });
+    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: valid, value: this.data.value, type: "text" });
   }
 
   validateField(): boolean {

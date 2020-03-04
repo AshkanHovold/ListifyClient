@@ -35,6 +35,9 @@ import { NewListComponent } from './pages/list/new-list/new-list.component';
 import { EditListComponent } from './pages/list/edit-list/edit-list.component';
 import { NewDashboardComponent } from './pages/dashboard/new-dashboard/new-dashboard.component';
 import { EditDashboardComponent } from './pages/dashboard/edit-dashboard/edit-dashboard.component';
+import { ImageComponent } from './input/image/image.component';
+import { AllItemsComponent } from './pages/item/all-items/all-items.component';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,10 @@ import { EditDashboardComponent } from './pages/dashboard/edit-dashboard/edit-da
     NewListComponent,
     EditListComponent,
     NewDashboardComponent,
-    EditDashboardComponent
+    EditDashboardComponent,
+    ImageComponent,
+    AllItemsComponent,
+    ItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
