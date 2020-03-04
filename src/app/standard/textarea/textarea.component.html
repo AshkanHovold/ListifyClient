@@ -1,5 +1,5 @@
 <div>
-    <label [for]="name" *ngIf="label">{{ label }}</label>
+    <label [for]="name" *ngIf="label">{{ label }} <span *ngIf="required">*</span></label>
     <textarea [(ngModel)]="inputValue" (ngModelChange)="inputValueChange.emit(inputValue)" [id]="name">
 
     </textarea>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { DataService } from 'src/app/shared/data.service';
 import { Constants } from 'src/app/shared/constants';
@@ -18,7 +18,7 @@ export class NewItemComponent implements OnInit {
   formId: string;
   item: any;
   ready: boolean = false;
-  constructor(private route: ActivatedRoute, private dataService: DataService, private inputService: InputService, private eventService: EventService) {
+  constructor(private route: ActivatedRoute, private dataService: DataService, private inputService: InputService, private eventService: EventService, private router: Router) {
     this.eventService.eventAdded$.subscribe((e: AppEventData) => {
       if (e.type === EventService.FORM_VALIDATION_DONE && e.data.formId === this.formId) {
         this.continueCreatingItem();
@@ -54,6 +54,10 @@ export class NewItemComponent implements OnInit {
       console.log("back in new-item component. all fields have executed validation logic. checking status on form");
       console.log(`${this.inputService.getFormStatus(this.formId)}`);
     }
+  }
+
+  cancel() {
+    this.router.navigate(['/template/', this.templateId]);
   }
 
 }

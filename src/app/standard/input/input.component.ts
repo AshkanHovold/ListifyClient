@@ -10,6 +10,7 @@ import { environment } from "../../../environments/environment";
 export class InputComponent implements OnInit {
   @Input() type: string;
   @Input() label: string;
+  @Input() required: boolean;
   name: string;
   constructor() {
     this.name = uuidv4();
@@ -27,5 +28,5 @@ export class InputComponent implements OnInit {
    * Invoked when the model has been changed
    */
   @Output() inputValueChange: EventEmitter<string> = new EventEmitter<string>();
-  ngOnInit() {}
+  ngOnInit() { }
 }

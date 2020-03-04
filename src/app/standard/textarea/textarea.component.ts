@@ -11,6 +11,7 @@ import { InputService } from 'src/app/shared/input.service';
 export class TextareaComponent implements OnInit {
 
   @Input() label: string;
+  @Input() required: boolean;
   name: string;
   constructor(private dataService: DataService, public inputService: InputService) {
     this.name = this.dataService.getNewId();

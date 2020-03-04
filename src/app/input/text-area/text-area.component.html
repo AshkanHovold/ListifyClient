@@ -1,6 +1,7 @@
 <app-li [render]="render">
   <app-li-input>
-    <app-textarea [(inputValue)]="data.value" [label]="data.settings.label" (input)="fieldChanged(data)">
+    <app-textarea [(inputValue)]="data.value" [label]="data.settings.label" (input)="fieldChanged(data)"
+      [required]="data.settings.required">
     </app-textarea>
     <app-info-msg [msg]="msg"></app-info-msg>
   </app-li-input>
