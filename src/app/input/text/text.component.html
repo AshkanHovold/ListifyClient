@@ -2,6 +2,7 @@
   <app-li-input>
     <app-input type="text" [(inputValue)]="data.value" [label]="data.settings.label" (input)="fieldChanged(data)">
     </app-input>
+    <app-info-msg [msg]="msg"></app-info-msg>
   </app-li-input>
   <app-li-settings>
     <app-radio [items]="[

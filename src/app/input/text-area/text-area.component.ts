@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 export class TextAreaComponent implements OnInit, InputField {
   @Input() data: TemplateFieldData;
   @Input() render: string;
+  msg: string = "";
 
   constructor(public inputService: InputService, private eventService: EventService) {
     this.eventService.eventAdded$.subscribe((e: AppEventData) => {
@@ -48,7 +49,11 @@ export class TextAreaComponent implements OnInit, InputField {
 
   validateField(): boolean {
     if (this.data.settings.required) {
-      return this.inputService.requiredField(this.data.value);
+      let toReturn = this.inputService.requiredField(this.data.value);
+      if (!toReturn) {
+        this.msg = "Field is required";
+      }
+      return toReturn;
     }
     return true;
   }

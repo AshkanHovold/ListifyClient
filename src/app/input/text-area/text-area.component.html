@@ -1,27 +1,17 @@
 <app-li [render]="render">
   <app-li-input>
-    <app-textarea
-      [(inputValue)]="data.value"
-      [label]="data.settings.label"
-      (input)="inputService.fieldChanged(data)"
-    ></app-textarea>
+    <app-textarea [(inputValue)]="data.value" [label]="data.settings.label" (input)="inputService.fieldChanged(data)">
+    </app-textarea>
+    <app-info-msg [msg]="msg"></app-info-msg>
   </app-li-input>
   <app-li-settings>
-    <app-radio
-      [items]="[
+    <app-radio [items]="[
         { name: 'Yes', value: true },
         { name: 'No', value: false }
-      ]"
-      label="Required"
-      [(selectedItem)]="data.settings.required"
-    ></app-radio>
+      ]" label="Required" [(selectedItem)]="data.settings.required"></app-radio>
 
     <!-- <app-input type="text" [(inputValue)]="data.settings.placeholder" label="Placeholder"></app-input> -->
-    <app-input
-      type="text"
-      [(inputValue)]="data.settings.label"
-      label="Label"
-    ></app-input>
+    <app-input type="text" [(inputValue)]="data.settings.label" label="Label"></app-input>
   </app-li-settings>
   <app-li-output>
     Textarea rendered: Blah

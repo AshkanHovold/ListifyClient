@@ -15,6 +15,7 @@ export class TextComponent implements OnInit, InputField {
 
   @Input() render: string;
   @Input() data: TemplateFieldData;
+  msg: string = "";
 
   constructor(public inputService: InputService, private eventService: EventService) {
     this.eventService.eventAdded$.subscribe((e: AppEventData) => {
@@ -61,7 +62,11 @@ export class TextComponent implements OnInit, InputField {
 
   validateField(): boolean {
     if (this.data.settings.required) {
-      return this.inputService.requiredField(this.data.value);
+      let toReturn = this.inputService.requiredField(this.data.value);
+      if (!toReturn) {
+        this.msg = "Field is required";
+      }
+      return toReturn;
     }
     return true;
   }
