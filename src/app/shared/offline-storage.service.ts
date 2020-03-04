@@ -21,9 +21,9 @@ export class OfflineStorageService {
     this.cache.driver = Driver.LOCAL_STORAGE;
   }
 
-  save(type: string, key: string, item: any): void {
+  async save(type: string, key: string, item: any): Promise<void> {
     this.ngf.storeName = type;
-    this.ngf.setItem(key, item);
+    await this.ngf.setItem(key, item);
   }
 
   public async getItem(type: string, key: string): Promise<any> {

@@ -15,7 +15,7 @@ export class TemplateComponent implements OnInit {
   templates: any[];
 
   async ngOnInit() {
-    this.templates = await this.dataService.getAllItems(Constants.TEMPLATE);
+    this.templates = await this.dataService.getAllDataFromStorage(Constants.TEMPLATE);
     if (environment.debugOn) {
       console.log(this.templates);
     }

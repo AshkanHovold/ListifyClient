@@ -38,7 +38,7 @@ export class EditTemplateComponent implements OnInit {
 
   async ngOnInit() {
     this.templateId = this.route.snapshot.paramMap.get("id");
-    this.template = await this.dataService.getItem(
+    this.template = await this.dataService.getDataFromStorage(
       Constants.TEMPLATE,
       this.templateId
     );
@@ -65,7 +65,7 @@ export class EditTemplateComponent implements OnInit {
   async addField() {
     this.template.fields.push(this.fieldToAdd);
     let toUpdate = this.dataService.deepCopy(this.template);
-    await this.dataService.setItem(
+    await this.dataService.setDataToStorage(
       Constants.TEMPLATE,
       this.templateId,
       toUpdate

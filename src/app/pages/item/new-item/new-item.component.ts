@@ -29,9 +29,9 @@ export class NewItemComponent implements OnInit {
   async ngOnInit() {
     this.formId = this.dataService.getNewId();
     this.templateId = this.route.snapshot.paramMap.get('id');
-    this.template = await this.dataService.getItem(Constants.TEMPLATE, this.templateId);
+    this.template = await this.dataService.getDataFromStorage(Constants.TEMPLATE, this.templateId);
     this.item = this.inputService.getNewItem(this.templateId, this.formId, this.template.fields);
-    this.inputService.newForm(this.formId, this.template.fields);
+    this.inputService.newForm(this.formId, this.template.fields, this.templateId);
     this.ready = true;
     if (environment.debugOn) {
       console.log(this.templateId);
@@ -49,11 +49,17 @@ export class NewItemComponent implements OnInit {
     this.eventService.add({ type: EventService.VALIDATE_FIELDS, data: { formId: this.formId } });
   }
 
-  continueCreatingItem() {
+  async continueCreatingItem() {
     if (environment.debugOn) {
       console.log("back in new-item component. all fields have executed validation logic. checking status on form");
       console.log(`${this.inputService.getFormStatus(this.formId)}`);
     }
+    let formIsValid = this.inputService.getFormStatus(this.formId);
+    if (formIsValid) {
+      await this.inputService.saveItem(this.formId);
+      this.router.navigate(['/template', this.templateId]);
+    }
+
   }
 
   cancel() {

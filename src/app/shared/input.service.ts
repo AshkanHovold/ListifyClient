@@ -5,28 +5,31 @@ import { TemplateFieldData } from "./models/templateField";
 import { v4 as uuidv4 } from "uuid";
 import { EventService, AppEventData } from './event.service';
 import { environment } from 'src/environments/environment';
+import { DataService } from './data.service';
+import { Constants } from './constants';
 
 @Injectable({
   providedIn: "root"
 })
 export class InputService {
 
+
   forms: any[];
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private dataService: DataService) {
     this.forms = [];
     this.eventService.eventAdded$.subscribe((e: AppEventData) => {
       if (e.type === EventService.INPUT_CHANGED) {
         this.fieldChanged(e.data);
       }
-    })
+    });
   }
   fieldChanged(input: any) {
     console.log(input);
   }
 
-  newForm(formId: string, fields: any[]) {
-    let fieldStates = fields.map(f => ({ fieldId: f.fieldId, valid: true }));
-    this.forms.push({ formId: formId, valid: true, fields: fieldStates, fieldsValidated: 0 });
+  newForm(formId: string, fields: any[], templateId: string) {
+    let fieldStates = fields.map(f => ({ fieldId: f.fieldId, valid: true, value: '' }));
+    this.forms.push({ formId: formId, templateId: templateId, valid: true, fields: fieldStates, fieldsValidated: 0 });
   }
 
   getAvailableInputs(): InputItem[] {
@@ -61,7 +64,9 @@ export class InputService {
   updateFormField(formField: any) {
     let form = this.forms.find(f => f.formId === formField.formId);
     let field = form.fields.find(f => f.fieldId === formField.fieldId);
+
     field.valid = formField.valid;
+    field.value = formField.value;
     if (environment.debugOn) {
       console.log(`One more field validated for ${form.formId}`);
     }
@@ -77,7 +82,7 @@ export class InputService {
     let form = this.forms.find(f => f.formId == formId);
     let notValidFields = form.fields.filter(f => f.valid == false);
     if (environment.debugOn) {
-      console.log(`notValidFields: ${notValidFields}`);
+      console.log(`notValidFields: ${notValidFields.length}`);
     }
     if (notValidFields.length > 0) {
       form.valid = false;
@@ -123,5 +128,10 @@ export class InputService {
       console.log(`Setting fieldsValidated to 0, starting validation for all fields for ${formId}`);
     }
     form.fieldsValidated = 0;
+  }
+
+  async saveItem(formId: string): Promise<void> {
+    let form = this.forms.find(f => f.formId === formId);
+    await this.dataService.setDataToStorage(Constants.ITEM, this.getNewId(), form);
   }
 }

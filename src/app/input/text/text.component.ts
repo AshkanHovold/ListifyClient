@@ -19,9 +19,6 @@ export class TextComponent implements OnInit, InputField {
 
   constructor(public inputService: InputService, private eventService: EventService) {
     this.eventService.eventAdded$.subscribe((e: AppEventData) => {
-      if (environment.debugOn) {
-        console.log("we got here");
-      }
       if (e.type === EventService.VALIDATE_FIELDS && e.data.formId === this.data.formId) {
         if (environment.debugOn) {
           console.log("VALIDATE_FIELDS triggered for this input. Validating fields");
@@ -57,7 +54,8 @@ export class TextComponent implements OnInit, InputField {
 
   fieldChanged() {
     //this.eventService.add({ type: EventService.INPUT_CHANGED, data: { valid: this.validateField(), formId: this.data.formId } });
-    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: this.validateField() });
+    let valid = this.validateField();
+    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: valid, value: this.data.value });
   }
 
   validateField(): boolean {

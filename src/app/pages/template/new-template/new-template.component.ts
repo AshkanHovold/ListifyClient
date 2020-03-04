@@ -22,7 +22,7 @@ export class NewTemplateComponent implements OnInit {
   }
 
   async validate() {
-    var templates = await this.dataService.getAllItems(this.TEMPLATE);
+    var templates = await this.dataService.getAllDataFromStorage(this.TEMPLATE);
     var found = templates.filter(
       t => t.templateName.toLowerCase() == this.templateName.toLowerCase()
     );
@@ -37,7 +37,7 @@ export class NewTemplateComponent implements OnInit {
 
   async createTemplate() {
     var id = this.dataService.getNewId();
-    await this.dataService.setItem(this.TEMPLATE, id, {
+    await this.dataService.setDataToStorage(this.TEMPLATE, id, {
       id: id,
       name: this.templateName,
       fields: []
