@@ -45,7 +45,8 @@ export class TextComponent implements OnInit, InputField {
 
     if (this.render === "output") {
       console.log(this.data);
-      this.data
+      this.data.settings = <TemplateSettings>{ required: false, label: "" };
+      //this.data
     }
     // this.data = <TemplateField>{
     //   value: "",

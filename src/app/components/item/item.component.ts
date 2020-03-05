@@ -18,9 +18,9 @@ export class ItemComponent implements OnInit {
     if (environment.debugOn) {
       console.log(this.item);
     }
-    if (this.item.id) {
+    if (this.item.itemId) {
 
-      this.data = await this.dataService.getDataFromStorage(Constants.ITEM, this.item.id);
+      this.data = await this.dataService.getDataFromStorage(Constants.ITEM, this.item.itemId);
     }
 
   }

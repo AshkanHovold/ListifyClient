@@ -7,6 +7,7 @@ import { EventService, AppEventData } from 'src/app/shared/event.service';
 import { environment } from 'src/environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DataService } from 'src/app/shared/data.service';
+import { TemplateSettings } from 'src/app/shared/models/templateSettings';
 
 export class ImageSnippet {
   constructor(public src: string, public file: File) { }
@@ -54,7 +55,8 @@ export class ImageComponent implements OnInit, InputField {
     }
 
     if (this.render === 'output') {
-      this.imageId = this.data.image.src;
+      this.data.settings = <TemplateSettings>{ required: false, label: "" };
+      this.imageData = this.data.image.src;
     }
   }
 

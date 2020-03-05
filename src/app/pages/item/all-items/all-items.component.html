@@ -1,3 +1,7 @@
 <div *ngIf="items">
-    <app-item [item]="item" *ngFor="let item of items"></app-item>
+    <app-card>
+        <app-toolbar>Items</app-toolbar>
+        <app-item [item]="item" *ngFor="let item of items"></app-item>
+    </app-card>
+
 </div>

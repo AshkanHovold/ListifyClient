@@ -4,6 +4,7 @@ import { TemplateFieldData } from 'src/app/shared/models/templateField';
 import { InputService } from 'src/app/shared/input.service';
 import { EventService, AppEventData } from 'src/app/shared/event.service';
 import { environment } from 'src/environments/environment';
+import { TemplateSettings } from 'src/app/shared/models/templateSettings';
 
 @Component({
   selector: 'app-text-area',
@@ -33,6 +34,13 @@ export class TextAreaComponent implements OnInit, InputField {
         required: false,
         validate: this.validateField,
         otherSettings: {}
+      }
+    }
+
+    if (this.render === "output") {
+      this.data.settings = <TemplateSettings>{
+        required: false,
+        label: ''
       }
     }
   }
