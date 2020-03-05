@@ -28,6 +28,12 @@ export class OfflineStorageService {
 
   public async getItem(type: string, key: string): Promise<any> {
     this.ngf.storeName = type;
+    if (!key) {
+      if (environment.debugOn) {
+        console.log("key was undefined. Why?");
+      }
+      return null;
+    }
     let result = await this.ngf.getItem(key);
     if (environment.debugOn) {
       console.log(result);
