@@ -52,11 +52,12 @@ export class ImageComponent implements OnInit, InputField {
 
     if (this.render === "input") {
       //this.data = this.inputService.getNewTemplateInput
+      this.data.data = { image: new ImageSnippet('', null) };
     }
 
     if (this.render === 'output') {
-      this.data.settings = <TemplateSettings>{ required: false, label: "" };
-      this.imageData = this.data.image.src;
+      //this.data.settings = <TemplateSettings>{ required: false, label: "" };
+      this.imageData = this.data.data.image.src;
     }
   }
 
@@ -84,9 +85,15 @@ export class ImageComponent implements OnInit, InputField {
   }
 
   fieldChanged() {
+    this.data.image = this.selectedFile;
     //this.eventService.add({ type: EventService.INPUT_CHANGED, data: { valid: this.validateField(), formId: this.data.formId } });
     let valid = this.validateField();
-    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: valid, value: this.data.value, image: this.selectedFile, type: "image" });
+    this.inputService.updateFormField(
+      {
+        type: "image",
+        valid: valid,
+        data: this.data
+      });
   }
 
   validateField(): boolean {

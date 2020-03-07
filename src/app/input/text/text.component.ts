@@ -40,28 +40,26 @@ export class TextComponent implements OnInit, InputField {
     }
 
     if (this.render === "input") {
-      //this.data = this.inputService.getNewTemplateInput      
+
     }
 
     if (this.render === "output") {
-      console.log(this.data);
-      this.data.settings = <TemplateSettings>{ required: false, label: "" };
-      //this.data
+
     }
-    // this.data = <TemplateField>{
-    //   value: "",
-    //   formId: this.formId,
-    //   templateId: this.templateId,
-    //   settings: <TemplateSettings>{
-    //     required: false
-    //   }
-    // };
   }
 
   fieldChanged() {
     //this.eventService.add({ type: EventService.INPUT_CHANGED, data: { valid: this.validateField(), formId: this.data.formId } });
     let valid = this.validateField();
-    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: valid, value: this.data.value, type: "text" });
+    this.inputService.updateFormField({
+      valid: valid,
+      type: "text",
+      data: this.data
+      // formId: this.data.formId, 
+      // fieldId: this.data.fieldId,       
+      // value: this.data.value,       
+      // settings: this.data.settings
+    });
   }
 
   validateField(): boolean {

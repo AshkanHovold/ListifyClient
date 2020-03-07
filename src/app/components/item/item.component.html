@@ -1,5 +1,7 @@
 <div class="item-wrapper" *ngIf="data">
-    <app-display-input [type]="field.type" *ngFor="let field of item.fields" render="output" [data]="field">
+    <app-card>
+        <app-display-input [type]="field.type" *ngFor="let field of item.fields" render="output" [data]="field">
 
-    </app-display-input>
+        </app-display-input>
+    </app-card>
 </div>

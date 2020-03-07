@@ -28,7 +28,7 @@ export class InputService {
   }
 
   newForm(formId: string, fields: any[], templateId: string) {
-    let fieldStates = fields.map(f => ({ fieldId: f.fieldId, valid: false, value: '', image: null, type: "" }));
+    let fieldStates = fields.map(f => ({ fieldId: f.fieldId, valid: false, value: '', image: null, type: "", settings: f.settings }));
     this.forms.push({ formId: formId, templateId: templateId, valid: false, fields: fieldStates, fieldsValidated: 0 });
   }
 
@@ -66,13 +66,16 @@ export class InputService {
     if (environment.debugOn) {
       console.log(formField);
     }
-    let form = this.forms.find(f => f.formId === formField.formId);
-    let field = form.fields.find(f => f.fieldId === formField.fieldId);
+    let form = this.forms.find(f => f.formId === formField.data.formId);
+    let field = form.fields.find(f => f.fieldId === formField.data.fieldId);
 
-    field.valid = formField.valid;
-    field.value = formField.value;
-    field.image = formField.image;
+    //field.value = formField.value;
     field.type = formField.type;
+    field.valid = formField.valid;
+    //field.image = formField.image;
+    //field.settings = formField.data.settings;
+    field.data = formField.data;
+
     if (environment.debugOn) {
       console.log(`One more field validated for ${form.formId}`);
     }

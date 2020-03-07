@@ -8,4 +8,5 @@ export interface TemplateFieldData {
   value?: any;
   settings?: TemplateSettings;
   image?: ImageSnippet;
+  data?: any;
 }

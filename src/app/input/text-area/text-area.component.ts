@@ -38,10 +38,7 @@ export class TextAreaComponent implements OnInit, InputField {
     }
 
     if (this.render === "output") {
-      this.data.settings = <TemplateSettings>{
-        required: false,
-        label: ''
-      }
+
     }
   }
 
@@ -49,7 +46,14 @@ export class TextAreaComponent implements OnInit, InputField {
 
   fieldChanged() {
     //this.eventService.add({ type: EventService.INPUT_CHANGED, data: { valid: this.validateField(), formId: this.data.formId } });
-    this.inputService.updateFormField({ formId: this.data.formId, fieldId: this.data.fieldId, valid: this.validateField(), value: this.data.value, type: "textarea" });
+    this.inputService.updateFormField({
+      valid: this.validateField(),
+      type: "textarea",
+      data: this.data
+      // value: this.data.value, 
+      // formId: this.data.formId, 
+      // fieldId: this.data.fieldId, 
+    });
   }
 
   validateField(): boolean {

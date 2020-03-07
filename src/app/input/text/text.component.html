@@ -15,6 +15,6 @@
     <app-input type="text" [(inputValue)]="data.settings.label" label="Label"></app-input>
   </app-li-settings>
   <app-li-output>
-    <span class="text-wrapper">{{data.value}}</span>
+    <span class="text-wrapper" *ngIf="data.data">{{data.settings.label}}: {{data.data.value}}</span>
   </app-li-output>
 </app-li>
