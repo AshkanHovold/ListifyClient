@@ -1,8 +1,8 @@
 <div *ngIf="items">
     <app-card>
         <app-toolbar>Items</app-toolbar>
-        <div class="flex-grid">
-            <app-item [item]="item" *ngFor="let item of items" class="col"></app-item>
+        <div class="flex-grid" *ngFor="let row of rows">
+            <app-item [item]="item" *ngFor="let item of row" class="col"></app-item>
         </div>
     </app-card>
 
