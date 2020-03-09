@@ -1,8 +1,6 @@
-@import "../../../variables.scss";
-
 .text-wrapper {
-  font-family: $font;
-  font-size: $smalltext;
-  padding: $padding;
-  margin: $padding;
+  font-family: var(--font);
+  font-size: var(--smalltext);
+  padding: var(--padding);
+  margin: var(--padding);
 }

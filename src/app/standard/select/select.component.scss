@@ -1,14 +1,12 @@
-@import "../../../variables.scss";
-
 label {
-    font-family: $font;
-    font-size: $smalltext;
-    padding-left: $padding;
+    font-family: var(--font);
+    font-size: var(--smalltext);
+    padding-left: var(--padding);
 }
 select {
-    font-family: $font;
-    font-size: $smalltext;
-    margin: $padding;
+    font-family: var(--font);
+    font-size: var(--smalltext);
+    margin: var(--padding);
     width: calc(100% - 4px);
     box-sizing: border-box;
 }

@@ -38,6 +38,7 @@ import { EditDashboardComponent } from './pages/dashboard/edit-dashboard/edit-da
 import { ImageComponent } from './input/image/image.component';
 import { AllItemsComponent } from './pages/item/all-items/all-items.component';
 import { ItemComponent } from './components/item/item.component';
+import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { ItemComponent } from './components/item/item.component';
     EditDashboardComponent,
     ImageComponent,
     AllItemsComponent,
-    ItemComponent
+    ItemComponent,
+    ThemeManagerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

@@ -1,6 +1,4 @@
-@import '../../../variables.scss';
-
 .display-input-wrapper {
-    padding: $padding;
-    margin: $padding;
+    padding: var(--padding);
+    margin: var(--padding);
 }

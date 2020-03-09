@@ -1,7 +1,5 @@
-@import '../../../variables.scss';
-
 .radio-button-wrapper {
-    padding: $padding;
-    font-family: $font;
-    font-size: $smalltext;
+    padding: var(--padding);
+    font-family: var(--font);
+    font-size: var(--smalltext);
 }

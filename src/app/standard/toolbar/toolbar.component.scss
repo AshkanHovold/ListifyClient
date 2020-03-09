@@ -1,12 +1,10 @@
-@import "../../../variables.scss";
-
 .toolbar-wrapper {
   width: calc(100% - 2px);
   min-width: 100px;
-  height: $toolbarheight;
-  background-color: cornflowerblue;
-  padding-top: $padding;
-  padding-left: $padding;
-  font-family: $font;
-  font-size: $bigtext;
+  height: var(--toolbarheight);
+  background-color: var(--primary);
+  padding-top: var(--padding);
+  padding-left: var(--padding);
+  font-family: var(--font);
+  font-size: var(--bigtext);
 }

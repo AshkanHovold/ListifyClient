@@ -1,8 +1,7 @@
-@import "../../../variables.scss";
 
 .info-msg-wrapper {
-  font-family: $font;
-  font-size: $tinytext;
-  padding: $padding;
-  background-color: $warningcolor;
+  font-family: var(--font);
+  font-size: var(--tinytext);
+  padding: var(--padding);
+  background-color: var(--warningcolor);
 }

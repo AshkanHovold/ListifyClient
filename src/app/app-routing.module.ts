@@ -6,6 +6,7 @@ import { NewTemplateComponent } from "./pages/template/new-template/new-template
 import { EditTemplateComponent } from "./pages/template/edit-template/edit-template.component";
 import { NewItemComponent } from './pages/item/new-item/new-item.component';
 import { AllItemsComponent } from './pages/item/all-items/all-items.component';
+import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,9 @@ const routes: Routes = [
   }, {
     path: "items",
     component: AllItemsComponent
+  }, {
+    path: "themes",
+    component: ThemeManagerComponent
   }
 ];
 

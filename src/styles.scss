@@ -2,3 +2,19 @@
 // @import 'tailwindcss/base';
 // @import 'tailwindcss/components';
 // @import 'tailwindcss/utilities';
+:root {
+    --padding:2px;
+    --font: "Times New Roman";
+    --toolbarheight: 30px;
+    --bigtext: 25px;
+    --mediumtext: 20px;
+    --smalltext:15px;
+    --tinytext:10px;
+    --warningcolor: yellow;
+    --primary: red;
+    --background: silver;
+    }
+
+    body {
+        background-color: var(--background);
+    }

@@ -1,7 +1,5 @@
-@import "../../../variables.scss";
-
 .list-item-wrapper {
-  padding-left: $padding;
-  font-family: $font;
-  font-size: $mediumtext;
+  padding-left: var(--padding);
+  font-family: var(--font);
+  font-size: var(--mediumtext);
 }

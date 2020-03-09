@@ -1,6 +1,4 @@
-@import "../../../variables.scss";
-
 .list-wrapper {
-  padding-top: $padding;
-  padding-bottom: $padding;
+  padding-top: var(--padding);
+  padding-bottom: var(--padding);
 }

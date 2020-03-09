@@ -14,6 +14,7 @@ export class AllItemsComponent implements OnInit {
   items: any[];
   nrOfItemsPerRow: number = 3;
   rows: any[] = [];
+  padding: string = "";
 
   constructor(private dataService: DataService) { }
 
@@ -62,7 +63,4 @@ export class AllItemsComponent implements OnInit {
 
     return uniqueListOfTemplateIds;
   }
-
-
-
 }
