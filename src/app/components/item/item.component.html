@@ -1,4 +1,4 @@
-<div class="item-wrapper" *ngIf="data">
+<div *ngIf="data">
     <app-card>
         <app-display-input [type]="field.type" *ngFor="let field of item.fields" render="output" [data]="field">
 
