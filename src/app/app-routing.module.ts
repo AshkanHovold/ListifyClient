@@ -7,6 +7,9 @@ import { EditTemplateComponent } from "./pages/template/edit-template/edit-templ
 import { NewItemComponent } from './pages/item/new-item/new-item.component';
 import { AllItemsComponent } from './pages/item/all-items/all-items.component';
 import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager.component';
+import { AllListsComponent } from './pages/list/all-lists/all-lists.component';
+import { NewListComponent } from './pages/list/new-list/new-list.component';
+import { ViewListComponent } from './pages/list/view-list/view-list.component';
 
 const routes: Routes = [
   {
@@ -33,6 +36,15 @@ const routes: Routes = [
   }, {
     path: "themes",
     component: ThemeManagerComponent
+  }, {
+    path: "lists",
+    component: AllListsComponent
+  }, {
+    path: "list/new",
+    component: NewListComponent
+  }, {
+    path: "list/:listId",
+    component: ViewListComponent
   }
 ];
 

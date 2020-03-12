@@ -1,6 +1,6 @@
 .card-wrapper {
   border-width: thin;
-  border-color: black;
+  border-color: var(--card-border-color);
   border-style: solid;
   padding: var(--padding);
   margin: 5px;

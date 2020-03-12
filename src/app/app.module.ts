@@ -39,6 +39,8 @@ import { ImageComponent } from './input/image/image.component';
 import { AllItemsComponent } from './pages/item/all-items/all-items.component';
 import { ItemComponent } from './components/item/item.component';
 import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager.component';
+import { AllListsComponent } from './pages/list/all-lists/all-lists.component';
+import { ViewListComponent } from './pages/list/view-list/view-list.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager
     ImageComponent,
     AllItemsComponent,
     ItemComponent,
-    ThemeManagerComponent
+    ThemeManagerComponent,
+    AllListsComponent,
+    ViewListComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

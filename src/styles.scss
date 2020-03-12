@@ -3,18 +3,30 @@
 // @import 'tailwindcss/components';
 // @import 'tailwindcss/utilities';
 :root {
-    --padding:2px;
-    --font: "Times New Roman";
-    --toolbarheight: 30px;
-    --bigtext: 25px;
-    --mediumtext: 20px;
-    --smalltext:15px;
-    --tinytext:10px;
-    --warningcolor: yellow;
-    --primary: red;
-    --background: silver;
-    }
+  --padding: 2px;
+  --font: "Times New Roman";
+  --toolbarheight: 30px;
+  --bigtext: 25px;
+  --mediumtext: 20px;
+  --smalltext: 15px;
+  --tinytext: 10px;
+  --warningcolor: yellow;
+  --primary: red;
+  --background: silver;
+  --fontcolor: black;
+  --card-border-color: black;
+  --linkcolor: black;
+  --link-text-decoration: none;
+  --link-font-weight: bold;
+}
 
-    body {
-        background-color: var(--background);
-    }
+body {
+  background-color: var(--background);
+  color: var(--fontcolor);
+
+  a {
+    color: var(--linkcolor);
+    text-decoration: var(--link-text-decoration);
+    font-weight: var(--link-font-weight);
+  }
+}

@@ -1,1 +1,23 @@
-<p>new-list works!</p>
+<app-card>
+  <app-toolbar>New list</app-toolbar>
+  <app-text-container>Information about new list</app-text-container>
+  <app-input type="text" [(inputValue)]="list.name" label="Name" (input)="validate()"></app-input>
+  <app-info-msg [msg]="msg"></app-info-msg>
+  <app-radio [items]="[
+        { name: 'Multi', value: true },
+        { name: 'Single', value: false }
+      ]" label="Templates" [(selectedItem)]="list.multiList"></app-radio>
+  <app-radio [items]="[
+        { name: 'Enabled', value: true },
+        { name: 'Disabled', value: false }
+      ]" label="Comments" [(selectedItem)]="list.comments"></app-radio>
+  <app-radio [items]="[
+        { name: 'Enabled', value: true },
+        { name: 'Disabled', value: false }
+      ]" label="Todo" [(selectedItem)]="list.todo"></app-radio>
+
+  <app-button-group>
+    <app-button (click)="createList()" [disabled]="!valid">Create</app-button>
+    <app-button (click)="cancel()">Cancel</app-button>
+  </app-button-group>
+</app-card>

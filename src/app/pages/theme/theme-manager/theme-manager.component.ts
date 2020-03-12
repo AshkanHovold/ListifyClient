@@ -20,7 +20,12 @@ export class ThemeManagerComponent implements OnInit {
     tinytext: '10px',
     warningcolor: 'yellow',
     primary: 'purple',
-    name: 'main'
+    name: 'main',
+    fontcolor: 'black',
+    cardBorderColor: 'black',
+    linkTextDecoration: 'none',
+    linkFontWeight: 'bold',
+    linkColor: 'black'
   };
 
   themes: any[] = [];
@@ -51,6 +56,11 @@ export class ThemeManagerComponent implements OnInit {
     document.documentElement.style.setProperty('--warningcolor', this.theme.warningcolor);
     document.documentElement.style.setProperty('--padding', this.theme.padding);
     document.documentElement.style.setProperty('--font', this.theme.font);
+    document.documentElement.style.setProperty('--fontcolor', this.theme.fontcolor);
+    document.documentElement.style.setProperty('--card-border-color', this.theme.cardBorderColor);
+    document.documentElement.style.setProperty('--link-text-decoration', this.theme.linkTextDecoration);
+    document.documentElement.style.setProperty('--link-font-weight', this.theme.linkFontWeight);
+    document.documentElement.style.setProperty('--linkcolor', this.theme.linkColor);
 
   }
 

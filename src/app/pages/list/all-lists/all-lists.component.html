@@ -1,0 +1,13 @@
+<app-card>
+  <app-toolbar>Lists</app-toolbar>
+  <app-button-group>
+    <app-button (click)="newList()">New list</app-button>
+  </app-button-group>
+  <app-text-container>Here you can make a list yes?</app-text-container>
+  <app-list>
+    <app-list-item *ngFor="let list of lists">
+      <a [routerLink]="[ '/list', list.id]">{{list.name}}</a>
+    </app-list-item>
+  </app-list>
+
+</app-card>
