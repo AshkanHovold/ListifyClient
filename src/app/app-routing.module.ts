@@ -10,6 +10,8 @@ import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager
 import { AllListsComponent } from './pages/list/all-lists/all-lists.component';
 import { NewListComponent } from './pages/list/new-list/new-list.component';
 import { ViewListComponent } from './pages/list/view-list/view-list.component';
+import { EditThemeComponent } from './pages/theme/edit-theme/edit-theme.component';
+import { NewThemeComponent } from './pages/theme/new-theme/new-theme.component';
 
 const routes: Routes = [
   {
@@ -45,6 +47,12 @@ const routes: Routes = [
   }, {
     path: "list/:listId",
     component: ViewListComponent
+  }, {
+    path: "theme/new",
+    component: NewThemeComponent
+  }, {
+    path: "theme/:themeId",
+    component: EditThemeComponent
   }
 ];
 

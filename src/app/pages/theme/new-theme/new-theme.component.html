@@ -1,0 +1,31 @@
+<app-card *ngIf="theme">
+    <app-toolbar>New theme: {{theme.name}}</app-toolbar>
+    <app-input type="text" [(inputValue)]="theme.name" label="Theme name"></app-input>
+    <app-input type="text" [(inputValue)]="theme.background" label="Background" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.padding" label="Padding" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.primary" label="Primary" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.font" label="Font" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.toolbarheight" label="Toolbarheight" (input)="themeChanged()">
+    </app-input>
+    <app-input type="text" [(inputValue)]="theme.bigtext" label="bigtext" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.mediumtext" label="mediumtext" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.smalltext" label="smalltext" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.tinytext" label="tinytext" (input)="themeChanged()"></app-input>
+    <app-input type="text" [(inputValue)]="theme.warningcolor" label="warningcolor" (input)="themeChanged()">
+    </app-input>
+    <app-input type="text" [(inputValue)]="theme.fontcolor" label="fontcolor" (input)="themeChanged()">
+    </app-input>
+    <app-input type="text" [(inputValue)]="theme.cardBorderColor" label="cardBorderColor" (input)="themeChanged()">
+    </app-input>
+    <app-input type="text" [(inputValue)]="theme.linkTextDecoration" label="linkTextDecoration"
+        (input)="themeChanged()">
+    </app-input>
+    <app-input type="text" [(inputValue)]="theme.linkFontWeight" label="linkFontWeight" (input)="themeChanged()">
+    </app-input>
+    <app-input type="text" [(inputValue)]="theme.linkColor" label="linkColor" (input)="themeChanged()">
+    </app-input>
+
+    <app-button-group>
+        <app-button (click)="saveTheme()">Save theme</app-button>
+    </app-button-group>
+</app-card>

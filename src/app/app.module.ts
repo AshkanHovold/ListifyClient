@@ -41,6 +41,9 @@ import { ItemComponent } from './components/item/item.component';
 import { ThemeManagerComponent } from './pages/theme/theme-manager/theme-manager.component';
 import { AllListsComponent } from './pages/list/all-lists/all-lists.component';
 import { ViewListComponent } from './pages/list/view-list/view-list.component';
+import { ThemePickerComponent } from './components/theme-picker/theme-picker.component';
+import { EditThemeComponent } from './pages/theme/edit-theme/edit-theme.component';
+import { NewThemeComponent } from './pages/theme/new-theme/new-theme.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,10 @@ import { ViewListComponent } from './pages/list/view-list/view-list.component';
     ItemComponent,
     ThemeManagerComponent,
     AllListsComponent,
-    ViewListComponent
+    ViewListComponent,
+    ThemePickerComponent,
+    EditThemeComponent,
+    NewThemeComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

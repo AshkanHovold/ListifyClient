@@ -31,4 +31,22 @@ export class DataService {
   deepCopy(toCopy: any): any {
     return JSON.parse(JSON.stringify(toCopy));
   }
+
+  setTheme(theme: any): void {
+    document.documentElement.style.setProperty('--background', theme.background);
+    document.documentElement.style.setProperty('--smalltext', theme.smalltext);
+    document.documentElement.style.setProperty('--bigtext', theme.bigtext);
+    document.documentElement.style.setProperty('--tinytext', theme.tinytext);
+    document.documentElement.style.setProperty('--mediumtext', theme.mediumtext);
+    document.documentElement.style.setProperty('--primary', theme.primary);
+    document.documentElement.style.setProperty('--toolbarheight', theme.toolbarheight);
+    document.documentElement.style.setProperty('--warningcolor', theme.warningcolor);
+    document.documentElement.style.setProperty('--padding', theme.padding);
+    document.documentElement.style.setProperty('--font', theme.font);
+    document.documentElement.style.setProperty('--fontcolor', theme.fontcolor);
+    document.documentElement.style.setProperty('--card-border-color', theme.cardBorderColor);
+    document.documentElement.style.setProperty('--link-text-decoration', theme.linkTextDecoration);
+    document.documentElement.style.setProperty('--link-font-weight', theme.linkFontWeight);
+    document.documentElement.style.setProperty('--linkcolor', theme.linkColor);
+  }
 }
