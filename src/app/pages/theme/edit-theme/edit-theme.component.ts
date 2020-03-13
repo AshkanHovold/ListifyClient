@@ -15,7 +15,6 @@ export class EditThemeComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) { }
 
   async ngOnInit() {
-    debugger;
     this.themeId = this.route.snapshot.paramMap.get('themeId');
     this.theme = await this.dataService.getDataFromStorage(Constants.THEME, this.themeId);
   }

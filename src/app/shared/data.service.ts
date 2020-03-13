@@ -2,11 +2,13 @@ import { Injectable } from "@angular/core";
 import { OfflineStorageService } from "./offline-storage.service";
 import { v4 as uuidv4 } from "uuid";
 import { environment } from "../../environments/environment";
+import { Constants } from './constants';
 @Injectable({
   providedIn: "root"
 })
 export class DataService {
-  constructor(private storage: OfflineStorageService) { }
+  constructor(private storage: OfflineStorageService) {
+  }
 
   getDataFromStorage(type: string, key: string): Promise<any> {
     return this.storage.getItem(type, key);
@@ -33,6 +35,9 @@ export class DataService {
   }
 
   setTheme(theme: any): void {
+    if (!theme) {
+      return;
+    }
     document.documentElement.style.setProperty('--background', theme.background);
     document.documentElement.style.setProperty('--smalltext', theme.smalltext);
     document.documentElement.style.setProperty('--bigtext', theme.bigtext);

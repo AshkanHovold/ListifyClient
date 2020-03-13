@@ -12,28 +12,33 @@ export class ThemePickerComponent implements OnInit {
   themes: any[];
   themeNames: any[];
   selectedTheme: any;
+  currentTheme: string;
   constructor(private dataService: DataService) { }
 
   async ngOnInit() {
-    let loadedTheme = await this.dataService.getDataFromStorage(Constants.THEME, "main");
     this.themes = await this.dataService.getAllDataFromStorage(Constants.THEME);
-    this.themeNames = this.themes.map(t => ({ name: t.name, value: t.name }));
+    this.themeNames = this.themes.map(t => ({ name: t.name, value: t.id }));
+    let found = this.themes.find(t => t.selectedTheme);
+    if (found) {
+      this.currentTheme = found.name;
+      this.selectedTheme = found.id;
+    }
   }
 
   async themeSelected() {
-    debugger;
     this.themes.forEach(theme => {
-      theme.selected = false;
+      theme.selectedTheme = false;
     });
 
-    for (let i = 0; i < this.themes.length; i++) {
-      const element = this.themes[i];
-      await this.dataService.setDataToStorage(Constants.THEME, element.id, element);
+    for (const themeItem of this.themes) {
+      await this.dataService.setDataToStorage(Constants.THEME, themeItem.id, themeItem);
     }
 
-
-    this.selectedTheme.selected = true;
-    await this.dataService.setDataToStorage(Constants.THEME, this.selectedTheme.id, this.selectedTheme);
+    let themeSelected = this.themes.find(t => t.id === this.selectedTheme);
+    themeSelected.selectedTheme = true;
+    this.currentTheme = themeSelected.name;
+    await this.dataService.setDataToStorage(Constants.THEME, themeSelected.id, themeSelected);
+    this.dataService.setTheme(themeSelected);
   }
 
 }

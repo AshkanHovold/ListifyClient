@@ -14,7 +14,6 @@ export class NewThemeComponent implements OnInit {
   themeId: string;
   theme: any;
   constructor(private dataService: DataService, private router: Router) {
-    alert("WTF");
   }
 
   ngOnInit() {

@@ -16,6 +16,6 @@ export class DefaultTheme {
         linkTextDecoration: 'none',
         linkFontWeight: 'bold',
         linkColor: 'black',
-        selectedTheme: true
+        selectedTheme: false
     }
 }

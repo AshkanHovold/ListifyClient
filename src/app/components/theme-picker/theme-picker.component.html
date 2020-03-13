@@ -1,5 +1,6 @@
 <app-card>
     <app-toolbar>Themes</app-toolbar>
+    <app-text-container *ngIf="currentTheme">Current theme: <b>{{currentTheme}}</b></app-text-container>
     <app-text-container>These are the saved themes found</app-text-container>
     <app-select [options]="themeNames" [(inputValue)]="selectedTheme" label="Themes" (change)="themeSelected()">
     </app-select>

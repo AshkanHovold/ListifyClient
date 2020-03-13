@@ -11,42 +11,15 @@ import { Router } from '@angular/router';
 })
 export class ThemeManagerComponent implements OnInit {
 
-  // theme: any;
-
   themes: any[] = [];
-  // themeNames: any[] = [];
-  // selectedTheme: string = "";
+
   constructor(private dataService: DataService, private router: Router) { }
 
   async ngOnInit() {
-    // this.theme = this.dataService.getCurrentTheme();
-    // let loadedTheme = await this.dataService.getDataFromStorage(Constants.THEME, "main");
-    // if (!loadedTheme) {
-    //   await this.dataService.setDataToStorage(Constants.THEME, "main", this.theme);
-    // } else {
-    //   this.theme = loadedTheme;
-    //   this.themeChanged();
-    // }
     this.themes = await this.dataService.getAllDataFromStorage(Constants.THEME);
-    // this.themeNames = this.themes.map(t => ({ name: t.name, value: t.name }));
   }
 
-  // themeChanged() {
-  //   this.dataService.setTheme(this.theme);
-
-  // }
-
-  // async saveTheme() {
-  //   await this.dataService.setDataToStorage(Constants.THEME, this.theme.name, this.theme);
-  // }
-
-  // themeSelected() {
-  //   let newTheme = this.themes.find(t => t.name == this.selectedTheme);
-  //   this.theme = newTheme;
-  //   this.themeChanged();
-  // }
   createNewTheme() {
-    debugger;
     this.router.navigate(['/theme/new']);
   }
 
