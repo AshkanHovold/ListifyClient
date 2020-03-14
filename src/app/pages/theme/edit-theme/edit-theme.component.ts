@@ -24,6 +24,10 @@ export class EditThemeComponent implements OnInit {
     this.router.navigate(['/themes']);
   }
 
+  async themeChanged() {
+    await this.dataService.setTheme(this.theme);
+  }
+
 
 
 }

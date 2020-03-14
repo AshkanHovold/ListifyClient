@@ -1,0 +1,84 @@
+{
+    // Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "App-input": {
+        "prefix": "appinput",
+        "body": [
+            "<app-input type=\"text\" label=\"${1:label}\" [(inputValue)]=\"${2:thisTextInput}\" (input)=\"${3:validate()}\" [required]=\"${4:required}\"></app-input>"
+        ],
+        "description": "Input text component in Listify"
+    },
+    "App-radio": {
+        "prefix": "appradio",
+        "body": [
+            "<app-radio [items]=\"${1:[{name:'', value:''\\}, {name:'', value:''\\}]}\" label=\"${2:Label}\" [(selectedItem)]=\"${3:optionSelected}\"></app-radio>"
+        ],
+        "description": "Radio button group component input in Listify"
+    },
+    "App-select": {
+        "prefix": "appselect",
+        "body": [
+            "<app-select [options]=\"${1:[{name:'', value:''\\}, {name:'', value:''\\}]}\" [(inputValue)]=\"selectedInput\" label=\"Label\" (change)=\"selectChanged()\"></app-select>"
+        ],
+        "description": "Select input component in Listify"
+    },
+    "App-button": {
+        "prefix": "appbutton",
+        "body": [
+            "<app-button (click)=\"onClick()\">${1:Button text}</app-button>"
+        ],
+        "description": "Button component in Listify"
+    },
+    "App-button-group": {
+        "prefix": "appbuttongroup",
+        "body": [
+            "<app-button-group>",
+            "<app-button (click)=\"onClick()\">${1:Button text}</app-button>",
+            "</app-button-group>"
+        ],
+        "description": "Button group in Listify"
+    },
+    "App-card-with-toolbar": {
+        "prefix": "appcardWithToolbar",
+        "body": [
+            "<app-card>",
+            "<app-toolbar>${1:Heading}</app-toolbar>",
+            "</app-card>"
+        ],
+        "description": "Card component with toolbar in Listify"
+    },
+    "App-text-container": {
+        "prefix": "appTextContainer",
+        "body": [
+            "<app-text-container>${1:Text here}</app-text-container>"
+        ],
+        "description": "Text container component in Listify"
+    },
+    "App-list-with-list-item": {
+        "prefix": "applistwithlistitem",
+        "body": [
+            "<app-list>",
+            "\t <app-list-item>${1:Item info}</app-list-item>",
+            "</app-list>"
+        ],
+        "description": "List with List Item component in Listify"
+    },
+    "App-text-area": {
+        "prefix": "apptextarea",
+        "body": [
+            "<app-textarea [(inputValue)]=\"${1:thisTextAreaInput}\" label=\"${2:Label}\" (input)=\"${3:validate()}\" [required]=\"${4:required}\"></app-textarea>"
+        ],
+        "description": "App text area input component in Listify"
+    }
+}

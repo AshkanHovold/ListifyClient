@@ -12,6 +12,7 @@ import { NewListComponent } from './pages/list/new-list/new-list.component';
 import { ViewListComponent } from './pages/list/view-list/view-list.component';
 import { EditThemeComponent } from './pages/theme/edit-theme/edit-theme.component';
 import { NewThemeComponent } from './pages/theme/new-theme/new-theme.component';
+import { AddItemToListComponent } from './pages/list/add-item-to-list/add-item-to-list.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,9 @@ const routes: Routes = [
   }, {
     path: "theme/:themeId",
     component: EditThemeComponent
+  }, {
+    path: "list/add-item/:listId",
+    component: AddItemToListComponent
   }
 ];
 
