@@ -5,17 +5,19 @@
     </app-input>
     <app-info-msg [msg]="msg"></app-info-msg>
     <app-radio [items]="[{name:'All templates', value:'all'}, {name:'One template', value:'one'}]" label="Templates"
-        [(selectedItem)]="optionSelected"></app-radio>
+        [(selectedItem)]="optionSelected" (change)="validate()"></app-radio>
     <app-select *ngIf="optionSelected==='one'" [options]="availableTemplates" [(inputValue)]="selectedTemplate"
-        label="Template" (change)="templateSelected()"></app-select>
+        label="Template" (change)="validate()"></app-select>
     <app-button-group>
         <app-button (click)="performSearch()" [disabled]="!valid">Search</app-button>
         <app-button (click)="onClick()">Cancel</app-button>
     </app-button-group>
 </app-card>
-<app-card>
+<app-card *ngIf="rows && rows.length > 0">
     <app-toolbar>Items found</app-toolbar>
-    <app-list>
 
-    </app-list>
+    <div class="flex-grid" *ngFor="let row of rows">
+        <app-item [item]="item" *ngFor="let item of row" class="col"></app-item>
+    </div>
+
 </app-card>
