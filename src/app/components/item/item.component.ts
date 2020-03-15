@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { DataService } from 'src/app/shared/data.service';
 import { Constants } from 'src/app/shared/constants';
@@ -12,7 +12,7 @@ import { Constants } from 'src/app/shared/constants';
 export class ItemComponent implements OnInit {
   @Input() item: any;
   data: any;
-  constructor(private route: ActivatedRoute, private dataService: DataService) { }
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) { }
 
   async ngOnInit() {
     if (environment.debugOn) {
@@ -23,6 +23,11 @@ export class ItemComponent implements OnInit {
       this.data = await this.dataService.getDataFromStorage(Constants.ITEM, this.item.itemId);
     }
 
+
+  }
+
+  viewItem() {
+    this.router.navigate(["/item/", this.item.itemId]);
   }
 
 }

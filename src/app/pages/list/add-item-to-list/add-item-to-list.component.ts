@@ -13,16 +13,40 @@ export class AddItemToListComponent implements OnInit {
   listId: string;
   list: any;
   optionSelected: string = "all";
+  msg: string = "";
+  valid: boolean = false;
+  availableTemplates: any[];
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   async ngOnInit() {
     this.listId = this.route.snapshot.paramMap.get('listId');
     this.list = await this.dataService.getDataFromStorage(Constants.LIST, this.listId);
+    let templates = await this.dataService.getAllDataFromStorage(Constants.TEMPLATE);
+    this.availableTemplates = templates.map(t => ({ name: t.name, value: t.id }));
   }
 
   async performSearch() {
-    if (this.searchTerm.length >= 3) {
+    this.validate();
+    if (!this.validate) {
+      return;
+    }
 
+    let all = this.optionSelected === "all";
+    if (all) {
+
+    }
+  }
+
+  validate() {
+    if (!this.searchTerm) {
+      this.msg = "Field is required";
+      this.valid = false;
+    } else if (this.searchTerm.length < 3) {
+      this.msg = "Atleast 3 characters required";
+      this.valid = false;
+    } else {
+      this.msg = "";
+      this.valid = true;
     }
   }
 

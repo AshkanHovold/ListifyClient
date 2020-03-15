@@ -3,5 +3,8 @@
         <app-display-input [type]="field.type" *ngFor="let field of item.fields" render="output" [data]="field">
 
         </app-display-input>
+        <app-button-group>
+            <app-button (click)="viewItem()">View item</app-button>
+        </app-button-group>
     </app-card>
 </div>

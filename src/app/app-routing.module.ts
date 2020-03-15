@@ -13,6 +13,7 @@ import { ViewListComponent } from './pages/list/view-list/view-list.component';
 import { EditThemeComponent } from './pages/theme/edit-theme/edit-theme.component';
 import { NewThemeComponent } from './pages/theme/new-theme/new-theme.component';
 import { AddItemToListComponent } from './pages/list/add-item-to-list/add-item-to-list.component';
+import { ViewItemComponent } from './pages/item/view-item/view-item.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: "template/:id",
     component: EditTemplateComponent
   }, {
+    path: "item/:itemId",
+    component: ViewItemComponent
+  },
+  {
     path: "item/new/:id",
     component: NewItemComponent
   }, {

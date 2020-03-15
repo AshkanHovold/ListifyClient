@@ -141,7 +141,14 @@ export class InputService {
 
   async saveItem(formId: string): Promise<void> {
     let form = this.forms.find(f => f.formId === formId);
+    let template = await this.dataService.getDataFromStorage(Constants.TEMPLATE, form.templateId);
     let itemId = this.getNewId();
+    if (!template.items) {
+      template.items = [];
+    }
+
+    template.items.push({ itemId: itemId, date: new Date().getTime() });
+    await this.dataService.setDataToStorage(Constants.TEMPLATE, template.id, template);
     form.itemId = itemId;
     await this.dataService.setDataToStorage(Constants.ITEM, itemId, form);
   }
