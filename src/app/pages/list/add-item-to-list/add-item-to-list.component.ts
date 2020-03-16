@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/shared/data.service';
 import { Constants } from 'src/app/shared/constants';
 import * as _ from "lodash";
+import { constants } from 'os';
 
 @Component({
   selector: 'app-add-item-to-list',
@@ -18,8 +19,8 @@ export class AddItemToListComponent implements OnInit {
   valid: boolean = false;
   availableTemplates: any[];
   itemsFound: any[] = [];
-  rows: any[];
   selectedTemplate: string;
+  itemsAdded: string[] = [];
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   async ngOnInit() {
@@ -39,17 +40,12 @@ export class AddItemToListComponent implements OnInit {
     if (all) {
       let items = await this.dataService.getAllDataFromStorage(Constants.ITEM);
       this.itemsFound = this.getSearchResult(items, this.searchTerm);
-      this.rows = _.chunk(this.itemsFound, 3);
     } else {
       let template = await this.dataService.getDataFromStorage(Constants.TEMPLATE, this.selectedTemplate);
-      let items = [];
-      for (let i = 0; i < template.items.length; i++) {
-        const item = template.items[i];
-        let toPush = await this.dataService.getDataFromStorage(Constants.ITEM, item.itemId);
-        items.push(toPush);
-        this.itemsFound = this.getSearchResult(items, this.searchTerm);
-        this.rows = _.chunk(this.itemsFound, 3);
-      }
+      let itemIds = template.item.map(i => (i.itemId));
+      let items = await this.dataService.getItems(itemIds);
+      this.itemsFound = this.getSearchResult(items, this.searchTerm);
+
     }
   }
   getSearchResult(items: any[], searchTerm: string): any[] {
@@ -79,5 +75,6 @@ export class AddItemToListComponent implements OnInit {
       this.valid = true;
     }
   }
+
 
 }

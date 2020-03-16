@@ -13,11 +13,7 @@
         <app-button (click)="onClick()">Cancel</app-button>
     </app-button-group>
 </app-card>
-<app-card *ngIf="rows && rows.length > 0">
+<app-card *ngIf="itemsFound.length > 0">
     <app-toolbar>Items found</app-toolbar>
-
-    <div class="flex-grid" *ngFor="let row of rows">
-        <app-item [item]="item" *ngFor="let item of row" class="col"></app-item>
-    </div>
-
+    <app-item-list [list]="list" [items]="itemsFound"></app-item-list>
 </app-card>

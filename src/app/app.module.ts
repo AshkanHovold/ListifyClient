@@ -46,6 +46,7 @@ import { EditThemeComponent } from './pages/theme/edit-theme/edit-theme.componen
 import { NewThemeComponent } from './pages/theme/new-theme/new-theme.component';
 import { AddItemToListComponent } from './pages/list/add-item-to-list/add-item-to-list.component';
 import { ViewItemComponent } from './pages/item/view-item/view-item.component';
+import { ItemListComponent } from './components/item-list/item-list.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { ViewItemComponent } from './pages/item/view-item/view-item.component';
     EditThemeComponent,
     NewThemeComponent,
     AddItemToListComponent,
-    ViewItemComponent
+    ViewItemComponent,
+    ItemListComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

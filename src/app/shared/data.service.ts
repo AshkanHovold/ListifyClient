@@ -26,6 +26,16 @@ export class DataService {
     return result;
   }
 
+  async getItems(itemIds: string[]): Promise<any[]> {
+    let toReturn = [];
+    for (let i = 0; i < itemIds.length; i++) {
+      const itemId = itemIds[i];
+      let toPush = await this.getDataFromStorage(Constants.ITEM, itemId);
+      toReturn.push(toPush);
+    }
+    return toReturn;
+  }
+
   getNewId(): string {
     return uuidv4();
   }

@@ -1,0 +1,10 @@
+<div class="flex-grid" *ngFor="let row of rows">
+    <app-card *ngFor="let item of row">
+        <app-item [item]="item" class="col"></app-item>
+        <app-button-group>
+            <app-button (click)="viewItem(item.itemId)">View item</app-button>
+            <app-button *ngIf="list && !itemAdded(item.itemId)" (click)="addToList(item.itemId)">Add to list
+            </app-button>
+        </app-button-group>
+    </app-card>
+</div>

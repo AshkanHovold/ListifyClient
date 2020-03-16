@@ -1,7 +1,9 @@
-<app-card *ngIf="list">
-  <app-toolbar>List</app-toolbar>
-  <app-text-container>{{list.name}}</app-text-container>
+<app-card *ngIf="list && items">
+  <app-toolbar>{{list.name}}</app-toolbar>
   <app-button-group>
-    <app-button (click)="addTolist()">Add item</app-button>
+    <app-button (click)="addTolist()">Add new items</app-button>
   </app-button-group>
+
+  <app-item-list [list]="list" [items]="items"></app-item-list>
+
 </app-card>
