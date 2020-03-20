@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/shared/data.service';
 import { Constants } from 'src/app/shared/constants';
 import * as _ from "lodash";
-import { constants } from 'os';
 
 @Component({
   selector: 'app-add-item-to-list',
@@ -45,7 +44,6 @@ export class AddItemToListComponent implements OnInit {
       let itemIds = template.item.map(i => (i.itemId));
       let items = await this.dataService.getItems(itemIds);
       this.itemsFound = this.getSearchResult(items, this.searchTerm);
-
     }
   }
   getSearchResult(items: any[], searchTerm: string): any[] {
