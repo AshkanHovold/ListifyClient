@@ -15,7 +15,7 @@ export class ListService {
 
   }
 
-  async addTolist(listId, string, itemId: string, userId: string): Promise<any> {
+  async addToList(listId: string, itemId: string, userId: string): Promise<any> {
 
   }
 
