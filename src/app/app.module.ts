@@ -97,7 +97,6 @@ import { ItemListComponent } from './components/item-list/item-list.component';
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [TextComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
