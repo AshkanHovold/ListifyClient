@@ -10,7 +10,7 @@
         label="Template" (change)="validate()"></app-select>
     <app-button-group>
         <app-button (click)="performSearch()" [disabled]="!valid">Search</app-button>
-        <app-button (click)="onClick()">Cancel</app-button>
+        <app-button (click)="cancel()">Cancel</app-button>
     </app-button-group>
 </app-card>
 <app-card *ngIf="itemsFound.length > 0">

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/shared/data.service';
 import { Constants } from 'src/app/shared/constants';
 import * as _ from "lodash";
@@ -20,7 +20,7 @@ export class AddItemToListComponent implements OnInit {
   itemsFound: any[] = [];
   selectedTemplate: string;
   itemsAdded: string[] = [];
-  constructor(private route: ActivatedRoute, private dataService: DataService) { }
+  constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) { }
 
   async ngOnInit() {
     this.listId = this.route.snapshot.paramMap.get('listId');
@@ -31,7 +31,7 @@ export class AddItemToListComponent implements OnInit {
 
   async performSearch() {
     this.validate();
-    if (!this.validate) {
+    if (!this.valid) {
       return;
     }
 
@@ -41,10 +41,14 @@ export class AddItemToListComponent implements OnInit {
       this.itemsFound = this.getSearchResult(items, this.searchTerm);
     } else {
       let template = await this.dataService.getDataFromStorage(Constants.TEMPLATE, this.selectedTemplate);
-      let itemIds = template.item.map(i => (i.itemId));
+      let itemIds = template.items.map(i => (i.itemId));
       let items = await this.dataService.getItems(itemIds);
       this.itemsFound = this.getSearchResult(items, this.searchTerm);
     }
+  }
+
+  cancel() {
+    this.router.navigate(['/list', this.listId]);
   }
   getSearchResult(items: any[], searchTerm: string): any[] {
     let toReturn = [];
